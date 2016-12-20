@@ -1,0 +1,41 @@
+//
+//  PrefixHeader.pch
+//  MeiTuanHD
+//
+//  Created by DXY on 16/12/20.
+//  Copyright © 2016年 DXY. All rights reserved.
+//
+
+//小技巧: #ifdef __OBJC__ 如果使用这个宏, 会保证引用的头文件将来值会导入到. m 文件中
+//.c .h .m .mm .cpp
+#ifdef __OBJC__
+
+///** 分类*/
+#import "UIBarButtonItem+MTCategory.h"
+#import "UIView+HMCategory.h"
+#import "UIImage+MTCategory.h"
+/////** 第三方库*/
+//#import <YYModel/YYModel.h>
+//// 只要添加了这个宏，equalTo就等价于mas_equalTo
+//#define MAS_SHORTHAND_GLOBALS
+//#import <Masonry/Masonry.h>
+//#import "DPAPI.h"
+//#import <SDWebImage/UIImageView+WebCache.h>
+//#import <SVProgressHUD/SVProgressHUD.h>
+//#import <MJRefresh/MJRefresh.h>
+//#import "HMConst.h"
+#endif
+
+
+/** NSLog 输出宏*/
+#ifdef DEBUG
+#define NSLog(FORMAT, ...) fprintf(stderr,"%s:%d\t%s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
+#else
+#define NSLog(...)
+#endif
+
+
+// 全局颜色
+#define HMColor(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
+// 弱引用
+#define WeakSelf(vc) __weak typeof(vc *) weakSelf = self
