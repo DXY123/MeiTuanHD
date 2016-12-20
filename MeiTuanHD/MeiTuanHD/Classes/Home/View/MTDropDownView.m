@@ -72,11 +72,32 @@
         UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+            
+            //设置背景View
+            cell.backgroundView =[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bg_dropdown_leftpart"]];
+            //设置选中背景View
+            cell.selectedBackgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bg_dropdown_left_selected"]];
+            
         }
+                                           
         //创建模型
         MTCategoryModel * categoryModel = self.categoryArray[indexPath.row];
         //赋值textLabel
         cell.textLabel.text = categoryModel.name;
+        //设置image
+        cell.imageView.image = [UIImage imageNamed:categoryModel.icon];
+        //高亮的
+        cell.imageView.highlightedImage = [UIImage imageNamed:categoryModel.highlighted_icon];
+        
+        //cell是否显示箭头
+        if (categoryModel.subcategories.count > 0) {
+            //表示有子分类数据 有箭头
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        }else{
+            //代表没有子分类数据,必须去掉箭头,因为cell重用问题
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }
+        
         return cell;
     }else{
         //右侧列表
@@ -84,6 +105,12 @@
         UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+            
+            //设置背景View
+            cell.backgroundView =[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bg_dropdown_rightpart"]];
+            //设置选中背景View
+            cell.selectedBackgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bg_dropdown_right_selected"]];
+            
         }
         //赋值textLabel
         cell.textLabel.text = self.selectCategoryModel.subcategories[indexPath.row];
@@ -112,7 +139,9 @@
         //设置代理
         _leftTableView.delegate = self;
         _leftTableView.dataSource = self;
-        _leftTableView.backgroundColor = [UIColor orangeColor];
+        
+        //设置分割线样式
+        _leftTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     return _leftTableView;
 }
@@ -123,7 +152,8 @@
         //设置代理
         _rightTableView.delegate = self;
         _rightTableView.dataSource = self;
-        _rightTableView.backgroundColor = [UIColor redColor];
+        //设置分割线样式
+        _rightTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     return _rightTableView;
 }
