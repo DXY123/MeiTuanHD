@@ -16,6 +16,7 @@
 		81B8480C1E085D4C00F9CA40 /* MTNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B8480B1E085D4C00F9CA40 /* MTNavigationController.m */; };
 		81B8480F1E08604700F9CA40 /* UIBarButtonItem+MTCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B8480E1E08604700F9CA40 /* UIBarButtonItem+MTCategory.m */; };
 		81B848121E0862CF00F9CA40 /* UIView+HMCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B848111E0862CF00F9CA40 /* UIView+HMCategory.m */; };
+		81FE96291E08DE480002258A /* MTCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FE96281E08DE480002258A /* MTCategoryViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,8 @@
 		81B8480E1E08604700F9CA40 /* UIBarButtonItem+MTCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+MTCategory.m"; sourceTree = "<group>"; };
 		81B848101E0862CF00F9CA40 /* UIView+HMCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HMCategory.h"; sourceTree = "<group>"; };
 		81B848111E0862CF00F9CA40 /* UIView+HMCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HMCategory.m"; sourceTree = "<group>"; };
+		81FE96271E08DE480002258A /* MTCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTCategoryViewController.h; sourceTree = "<group>"; };
+		81FE96281E08DE480002258A /* MTCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTCategoryViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +116,8 @@
 			children = (
 				814AB5FB1E051F9800BF863F /* MTHomeViewController.h */,
 				814AB5FC1E051F9800BF863F /* MTHomeViewController.m */,
+				81FE96271E08DE480002258A /* MTCategoryViewController.h */,
+				81FE96281E08DE480002258A /* MTCategoryViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -258,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81FE96291E08DE480002258A /* MTCategoryViewController.m in Sources */,
 				81B8480F1E08604700F9CA40 /* UIBarButtonItem+MTCategory.m in Sources */,
 				81B848121E0862CF00F9CA40 /* UIView+HMCategory.m in Sources */,
 				81593CE51E08705700E84987 /* UIImage+MTCategory.m in Sources */,

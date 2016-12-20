@@ -9,6 +9,8 @@
 #import "MTHomeViewController.h"
 //自定义导航View
 #import "MTHomeNavView.h"
+//分类popover
+#import "MTCategoryViewController.h"
 
 @interface MTHomeViewController ()
 
@@ -105,6 +107,14 @@ static NSString * const reuseIdentifier = @"Cell";
 //分类
 - (void)categoryClick{
     NSLog(@"分类");
+    //实例化
+    MTCategoryViewController * categoryVc = [MTCategoryViewController new];
+    //设置呈现样式
+    categoryVc.modalPresentationStyle = UIModalPresentationPopover;
+    //设置barButtonItem
+    categoryVc.popoverPresentationController.barButtonItem = self.navigationItem.leftBarButtonItems[1];
+    //模态弹出
+    [self presentViewController:categoryVc animated:YES completion:nil];
 }
 
 //地区
