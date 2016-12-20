@@ -18,7 +18,8 @@
 @property(nonatomic,strong) UITableView * tableView;
 //保存城市数组
 @property(nonatomic,strong) NSMutableArray<MTCityGroupModel *> * dataArray;
-
+//覆盖按钮
+@property(nonatomic,strong) UIButton * btnCover;
 
 @end
 
@@ -53,6 +54,7 @@
     //添加控件
     [self.view addSubview:self.searchBar];
     [self.view addSubview:self.tableView];
+    [self.view addSubview:self.btnCover];
     
     //添加约束
     [self.searchBar mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -66,6 +68,10 @@
         make.left.right.bottom.equalTo(self.view);
     }];
     
+    [self.btnCover mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.bottom.right.equalTo(self.view);
+        make.top.equalTo(self.searchBar.mas_bottom).offset(15);
+    }];
     
 }
 
@@ -81,7 +87,11 @@
     [self dismissViewControllerAnimated:true completion:nil];
 }
 
-
+//覆盖按钮点击
+- (void)btnCoverClick{
+    //取消键盘的第一响应
+    [self.searchBar resignFirstResponder];
+}
 
 #pragma mark - UITableViewDataSource 代理方法
 //有几组
@@ -134,7 +144,6 @@
 }
 
 #pragma mark - UISearchBarDelegate 代理方法
-
 #pragma mark - searchbar开始编辑
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
     NSLog(@"开始编辑");
@@ -162,12 +171,36 @@
             
         }
     }
+    //显示遮盖按钮
+    self.btnCover.hidden = false;
     
+}
+
+#pragma mark - 结束编辑
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
+    // 01 显示导航栏
+    [self.navigationController setNavigationBarHidden:false animated:true];
+    // 02 重新设置searchbar背景图片
+    [self.searchBar setBackgroundImage:[UIImage imageNamed:@"bg_login_textfield"]];
+    
+    // 03 关闭取消按钮
+    [self.searchBar setShowsCancelButton:false animated:YES];
+    // 04 隐藏遮盖按钮
+    self.btnCover.hidden = true;
+    // 05 清空searchBar上的文字
+    self.searchBar.text = @"";
+}
+
+#pragma mark - 监听取消按钮点击
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    //取消键盘的第一响应
+    [self.searchBar resignFirstResponder];
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     
 }
+
 
 
 #pragma mark - 懒加载
@@ -204,5 +237,18 @@
     return _dataArray;
 }
 
+//覆盖按钮
+-(UIButton *)btnCover{
+    if (!_btnCover) {
+        _btnCover = [UIButton buttonWithType:UIButtonTypeCustom];
+        _btnCover.backgroundColor = [UIColor blackColor];
+        //透明度
+        _btnCover.alpha = 0.3;
+        [_btnCover addTarget:self action:@selector(btnCoverClick) forControlEvents:UIControlEventTouchUpInside];
+        //首次进入的时候覆盖按钮不显示,需要隐藏
+        _btnCover.hidden = YES;
+    }
+    return _btnCover;
+}
 
 @end
