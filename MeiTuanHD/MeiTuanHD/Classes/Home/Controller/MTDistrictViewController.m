@@ -7,6 +7,10 @@
 //
 
 #import "MTDistrictViewController.h"
+//城市选择控制器
+#import "MTCityViewController.h"
+//自定义导航栏
+#import "MTNavigationController.h"
 
 @interface MTDistrictViewController ()<UITableViewDelegate,UITableViewDataSource>
 //顶部tableView
@@ -62,6 +66,39 @@
     
     return cell;
 }
+
+//选中Cell
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    //关闭地区的下拉菜单
+    [self dismissViewControllerAnimated:true completion:nil];
+    
+    //实例化
+    MTCityViewController * cityVc = [MTCityViewController new];
+    //导航栏
+    MTNavigationController * cityNav = [[MTNavigationController alloc] initWithRootViewController:cityVc];
+    
+    //设置呈现的样式
+    cityNav.modalPresentationStyle = UIModalPresentationFormSheet;
+    
+    //转场样式
+    cityNav.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    
+    
+    
+    //模态弹出(使用Application的rootViewController,即HomeViewController弹出)
+    /*
+     
+     因为你已经把父类关闭了.所以子类无法通过模态弹出
+     
+     解决办法:
+        正常关闭当前的地区控制器,通过调用首页来弹出省份选择控制器
+     [UIApplication sharedApplication].keyWindow.rootViewController == homeVc
+     
+     */
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:cityNav animated:true completion:nil];
+    
+}
+
 
 #pragma mark - 懒加载
 - (UITableView *)headTableView{

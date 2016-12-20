@@ -24,6 +24,7 @@
 		81FE96351E08F06A0002258A /* sorts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 81FE96311E08F06A0002258A /* sorts.plist */; };
 		81FE96381E08F1490002258A /* MTCategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FE96371E08F1490002258A /* MTCategoryModel.m */; };
 		81FE963B1E091C620002258A /* MTDistrictViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FE963A1E091C620002258A /* MTDistrictViewController.m */; };
+		81FE963E1E0923180002258A /* MTCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FE963D1E0923180002258A /* MTCityViewController.m */; };
 		A64EA7C0AE94EA33F5B28F63 /* libPods-MeiTuanHD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A430A651A51F9281FB24E44B /* libPods-MeiTuanHD.a */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,8 @@
 		81FE96371E08F1490002258A /* MTCategoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTCategoryModel.m; sourceTree = "<group>"; };
 		81FE96391E091C620002258A /* MTDistrictViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDistrictViewController.h; sourceTree = "<group>"; };
 		81FE963A1E091C620002258A /* MTDistrictViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTDistrictViewController.m; sourceTree = "<group>"; };
+		81FE963C1E0923180002258A /* MTCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTCityViewController.h; sourceTree = "<group>"; };
+		81FE963D1E0923180002258A /* MTCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTCityViewController.m; sourceTree = "<group>"; };
 		A430A651A51F9281FB24E44B /* libPods-MeiTuanHD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MeiTuanHD.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -145,6 +148,8 @@
 				81FE96281E08DE480002258A /* MTCategoryViewController.m */,
 				81FE96391E091C620002258A /* MTDistrictViewController.h */,
 				81FE963A1E091C620002258A /* MTDistrictViewController.m */,
+				81FE963C1E0923180002258A /* MTCityViewController.h */,
+				81FE963D1E0923180002258A /* MTCityViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -384,6 +389,7 @@
 				81FE96381E08F1490002258A /* MTCategoryModel.m in Sources */,
 				81593CE51E08705700E84987 /* UIImage+MTCategory.m in Sources */,
 				81593CE21E08655700E84987 /* MTHomeNavView.m in Sources */,
+				81FE963E1E0923180002258A /* MTCityViewController.m in Sources */,
 				81B8480C1E085D4C00F9CA40 /* MTNavigationController.m in Sources */,
 				81FE963B1E091C620002258A /* MTDistrictViewController.m in Sources */,
 				814AB5FD1E051F9800BF863F /* MTHomeViewController.m in Sources */,

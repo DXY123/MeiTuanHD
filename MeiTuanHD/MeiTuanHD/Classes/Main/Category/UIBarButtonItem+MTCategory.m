@@ -13,7 +13,7 @@
 +(UIBarButtonItem *)BarButtonItemWithImgName:(NSString *)imgName Target:(id)target action:(SEL)action{
     UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn setImage:[UIImage imageNamed:imgName] forState:UIControlStateNormal];
-    [btn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_hghlighted",imgName]] forState:UIControlStateHighlighted];
+    [btn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_highlighted",imgName]] forState:UIControlStateHighlighted];
     [btn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     [btn sizeToFit];
     
