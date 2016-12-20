@@ -12,6 +12,7 @@
 		814AB5FD1E051F9800BF863F /* MTHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 814AB5FC1E051F9800BF863F /* MTHomeViewController.m */; };
 		81593CE21E08655700E84987 /* MTHomeNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81593CE11E08655700E84987 /* MTHomeNavView.m */; };
 		81593CE51E08705700E84987 /* UIImage+MTCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 81593CE41E08705700E84987 /* UIImage+MTCategory.m */; };
+		81B5033B1E098324008B03CF /* MTCitySearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B5033A1E098324008B03CF /* MTCitySearchResultViewController.m */; };
 		81B848081E08572100F9CA40 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 814AB5DD1E051CCC00BF863F /* AppDelegate.m */; };
 		81B8480C1E085D4C00F9CA40 /* MTNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B8480B1E085D4C00F9CA40 /* MTNavigationController.m */; };
 		81B8480F1E08604700F9CA40 /* UIBarButtonItem+MTCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B8480E1E08604700F9CA40 /* UIBarButtonItem+MTCategory.m */; };
@@ -45,6 +46,8 @@
 		81593CE11E08655700E84987 /* MTHomeNavView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTHomeNavView.m; sourceTree = "<group>"; };
 		81593CE31E08705700E84987 /* UIImage+MTCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MTCategory.h"; sourceTree = "<group>"; };
 		81593CE41E08705700E84987 /* UIImage+MTCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MTCategory.m"; sourceTree = "<group>"; };
+		81B503391E098324008B03CF /* MTCitySearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTCitySearchResultViewController.h; sourceTree = "<group>"; };
+		81B5033A1E098324008B03CF /* MTCitySearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTCitySearchResultViewController.m; sourceTree = "<group>"; };
 		81B848091E085BA500F9CA40 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		81B8480A1E085D4C00F9CA40 /* MTNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTNavigationController.h; sourceTree = "<group>"; };
 		81B8480B1E085D4C00F9CA40 /* MTNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTNavigationController.m; sourceTree = "<group>"; };
@@ -155,6 +158,8 @@
 				81FE963A1E091C620002258A /* MTDistrictViewController.m */,
 				81FE963C1E0923180002258A /* MTCityViewController.h */,
 				81FE963D1E0923180002258A /* MTCityViewController.m */,
+				81B503391E098324008B03CF /* MTCitySearchResultViewController.h */,
+				81B5033A1E098324008B03CF /* MTCitySearchResultViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -398,6 +403,7 @@
 				81FE96381E08F1490002258A /* MTCategoryModel.m in Sources */,
 				81593CE51E08705700E84987 /* UIImage+MTCategory.m in Sources */,
 				81593CE21E08655700E84987 /* MTHomeNavView.m in Sources */,
+				81B5033B1E098324008B03CF /* MTCitySearchResultViewController.m in Sources */,
 				81FE963E1E0923180002258A /* MTCityViewController.m in Sources */,
 				81B8480C1E085D4C00F9CA40 /* MTNavigationController.m in Sources */,
 				81FE963B1E091C620002258A /* MTDistrictViewController.m in Sources */,

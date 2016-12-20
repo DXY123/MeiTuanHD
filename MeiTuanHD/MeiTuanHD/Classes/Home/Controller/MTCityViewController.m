@@ -9,7 +9,8 @@
 #import "MTCityViewController.h"
 //城市组模型
 #import "MTCityGroupModel.h"
-
+//查询城市结果控制器
+#import "MTCitySearchResultViewController.h"
 
 @interface MTCityViewController ()<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate>
 //searchBar
@@ -20,6 +21,8 @@
 @property(nonatomic,strong) NSMutableArray<MTCityGroupModel *> * dataArray;
 //覆盖按钮
 @property(nonatomic,strong) UIButton * btnCover;
+//搜索城市结果集控制器
+@property(nonatomic,strong) MTCitySearchResultViewController * citySearchResultVc;
 
 @end
 
@@ -55,6 +58,7 @@
     [self.view addSubview:self.searchBar];
     [self.view addSubview:self.tableView];
     [self.view addSubview:self.btnCover];
+    [self.view addSubview:self.citySearchResultVc.view];
     
     //添加约束
     [self.searchBar mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -69,6 +73,11 @@
     }];
     
     [self.btnCover mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.bottom.right.equalTo(self.view);
+        make.top.equalTo(self.searchBar.mas_bottom).offset(15);
+    }];
+    
+    [self.citySearchResultVc.view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.bottom.right.equalTo(self.view);
         make.top.equalTo(self.searchBar.mas_bottom).offset(15);
     }];
@@ -197,8 +206,16 @@
     [self.searchBar resignFirstResponder];
 }
 
+#pragma mark - 监听文字改变
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
-    
+    //判断searchBar text长度
+    if (self.searchBar.text.length > 0) {
+        //显示CitySearchResultVc
+        self.citySearchResultVc.view.hidden = false;
+    }else{
+        //隐藏
+        self.citySearchResultVc.view.hidden = true;
+    }
 }
 
 
@@ -249,6 +266,18 @@
         _btnCover.hidden = YES;
     }
     return _btnCover;
+}
+
+//搜索城市结果控制器
+- (MTCitySearchResultViewController *)citySearchResultVc{
+    if (!_citySearchResultVc) {
+        _citySearchResultVc = [MTCitySearchResultViewController new];
+        //把该控制器添加为CityVc的子控制器
+        [self addChildViewController:_citySearchResultVc];
+        //一开始隐藏当前控制器的view
+        _citySearchResultVc.view.hidden = true;
+    }
+    return _citySearchResultVc;
 }
 
 @end
