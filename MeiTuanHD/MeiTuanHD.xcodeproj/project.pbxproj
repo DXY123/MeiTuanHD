@@ -18,6 +18,11 @@
 		81B848121E0862CF00F9CA40 /* UIView+HMCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B848111E0862CF00F9CA40 /* UIView+HMCategory.m */; };
 		81FE96291E08DE480002258A /* MTCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FE96281E08DE480002258A /* MTCategoryViewController.m */; };
 		81FE962C1E08DFC70002258A /* MTDropDownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FE962B1E08DFC70002258A /* MTDropDownView.m */; };
+		81FE96321E08F06A0002258A /* categories.plist in Resources */ = {isa = PBXBuildFile; fileRef = 81FE962E1E08F06A0002258A /* categories.plist */; };
+		81FE96331E08F06A0002258A /* cities.plist in Resources */ = {isa = PBXBuildFile; fileRef = 81FE962F1E08F06A0002258A /* cities.plist */; };
+		81FE96341E08F06A0002258A /* cityGroups.plist in Resources */ = {isa = PBXBuildFile; fileRef = 81FE96301E08F06A0002258A /* cityGroups.plist */; };
+		81FE96351E08F06A0002258A /* sorts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 81FE96311E08F06A0002258A /* sorts.plist */; };
+		81FE96381E08F1490002258A /* MTCategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FE96371E08F1490002258A /* MTCategoryModel.m */; };
 		A64EA7C0AE94EA33F5B28F63 /* libPods-MeiTuanHD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A430A651A51F9281FB24E44B /* libPods-MeiTuanHD.a */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +52,12 @@
 		81FE96281E08DE480002258A /* MTCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTCategoryViewController.m; sourceTree = "<group>"; };
 		81FE962A1E08DFC70002258A /* MTDropDownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDropDownView.h; sourceTree = "<group>"; };
 		81FE962B1E08DFC70002258A /* MTDropDownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTDropDownView.m; sourceTree = "<group>"; };
+		81FE962E1E08F06A0002258A /* categories.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = categories.plist; sourceTree = "<group>"; };
+		81FE962F1E08F06A0002258A /* cities.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cities.plist; sourceTree = "<group>"; };
+		81FE96301E08F06A0002258A /* cityGroups.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cityGroups.plist; sourceTree = "<group>"; };
+		81FE96311E08F06A0002258A /* sorts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sorts.plist; sourceTree = "<group>"; };
+		81FE96361E08F1490002258A /* MTCategoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTCategoryModel.h; sourceTree = "<group>"; };
+		81FE96371E08F1490002258A /* MTCategoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTCategoryModel.m; sourceTree = "<group>"; };
 		A430A651A51F9281FB24E44B /* libPods-MeiTuanHD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MeiTuanHD.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -90,6 +101,7 @@
 				814AB5EA1E051CCC00BF863F /* Info.plist */,
 				814AB5D91E051CCC00BF863F /* Supporting Files */,
 				81B848091E085BA500F9CA40 /* PrefixHeader.pch */,
+				81FE962D1E08F06A0002258A /* Plist */,
 			);
 			path = MeiTuanHD;
 			sourceTree = "<group>";
@@ -135,6 +147,8 @@
 		814AB5F31E051EFD00BF863F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				81FE96361E08F1490002258A /* MTCategoryModel.h */,
+				81FE96371E08F1490002258A /* MTCategoryModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -203,6 +217,18 @@
 			children = (
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		81FE962D1E08F06A0002258A /* Plist */ = {
+			isa = PBXGroup;
+			children = (
+				81FE962E1E08F06A0002258A /* categories.plist */,
+				81FE962F1E08F06A0002258A /* cities.plist */,
+				81FE96301E08F06A0002258A /* cityGroups.plist */,
+				81FE96311E08F06A0002258A /* sorts.plist */,
+			);
+			name = Plist;
+			path = ../Plist;
 			sourceTree = "<group>";
 		};
 		988052DE8C557C2B563E37E6 /* Frameworks */ = {
@@ -284,7 +310,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81FE96331E08F06A0002258A /* cities.plist in Resources */,
+				81FE96321E08F06A0002258A /* categories.plist in Resources */,
+				81FE96351E08F06A0002258A /* sorts.plist in Resources */,
 				814AB5E61E051CCC00BF863F /* Assets.xcassets in Resources */,
+				81FE96341E08F06A0002258A /* cityGroups.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +376,7 @@
 				81FE96291E08DE480002258A /* MTCategoryViewController.m in Sources */,
 				81B8480F1E08604700F9CA40 /* UIBarButtonItem+MTCategory.m in Sources */,
 				81B848121E0862CF00F9CA40 /* UIView+HMCategory.m in Sources */,
+				81FE96381E08F1490002258A /* MTCategoryModel.m in Sources */,
 				81593CE51E08705700E84987 /* UIImage+MTCategory.m in Sources */,
 				81593CE21E08655700E84987 /* MTHomeNavView.m in Sources */,
 				81B8480C1E085D4C00F9CA40 /* MTNavigationController.m in Sources */,

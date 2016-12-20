@@ -15,7 +15,7 @@
 #import "UIView+HMCategory.h"
 #import "UIImage+MTCategory.h"
 /** 第三方库*/
-//#import <YYModel/YYModel.h>
+#import <YYModel/YYModel.h>
 // 只要添加了这个宏，equalTo就等价于mas_equalTo
 #define MAS_SHORTHAND_GLOBALS
 #import <Masonry/Masonry.h>

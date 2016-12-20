@@ -7,6 +7,9 @@
 //
 
 #import "MTDropDownView.h"
+//分类模型
+#import "MTCategoryModel.h"
+
 
 @interface MTDropDownView ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -14,6 +17,9 @@
 @property(nonatomic,strong) UITableView * leftTableView;
 //右侧tableView
 @property(nonatomic,strong) UITableView * rightTableView;
+//选中的分类模型
+@property(nonatomic,strong) MTCategoryModel * selectCategoryModel;
+
 @end
 
 @implementation MTDropDownView
@@ -46,22 +52,55 @@
     }];
     
     
-    
 }
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 20;
+    //如果是左侧列表
+    if (self.leftTableView == tableView) {
+        return self.categoryArray.count;
+    }else{
+        //右侧
+        return self.selectCategoryModel.subcategories.count;
+    }
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString * cellId = @"cellId";
-    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];;
+    //左侧列表
+    if (self.leftTableView == tableView) {
+        static NSString * cellId = @"cellId";
+        UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+        }
+        //创建模型
+        MTCategoryModel * categoryModel = self.categoryArray[indexPath.row];
+        //赋值textLabel
+        cell.textLabel.text = categoryModel.name;
+        return cell;
+    }else{
+        //右侧列表
+        static NSString * cellId = @"cellId";
+        UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+        }
+        //赋值textLabel
+        cell.textLabel.text = self.selectCategoryModel.subcategories[indexPath.row];
+        return cell;
     }
-    cell.textLabel.text = @"哈哈";
-    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    //选择的是左侧列表,才会保存当前选中的模型
+    if (self.leftTableView == tableView) {
+        //创建模型
+        MTCategoryModel * categoryModel = self.categoryArray[indexPath.row];
+        //赋值
+        self.selectCategoryModel = categoryModel;
+        //刷新右侧tableView
+        [self.rightTableView reloadData];
+    }
 }
 
 

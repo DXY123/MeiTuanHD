@@ -8,5 +8,6 @@ target 'MeiTuanHD' do
   # Pods for MeiTuanHD
 
 pod 'Masonry'
+pod 'YYModel'
 
 end

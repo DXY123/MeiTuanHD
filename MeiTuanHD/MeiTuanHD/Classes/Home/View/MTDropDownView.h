@@ -10,4 +10,8 @@
 
 @interface MTDropDownView : UIView
 
+//分类数据
+@property(nonatomic,strong) NSArray * categoryArray;
+
+
 @end
