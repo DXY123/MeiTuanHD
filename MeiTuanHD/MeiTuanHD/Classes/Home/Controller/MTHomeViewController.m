@@ -11,6 +11,8 @@
 #import "MTHomeNavView.h"
 //分类popover
 #import "MTCategoryViewController.h"
+//地区popover
+#import "MTDistrictViewController.h"
 
 @interface MTHomeViewController ()
 
@@ -120,6 +122,13 @@ static NSString * const reuseIdentifier = @"Cell";
 //地区
 - (void)districtClick{
     NSLog(@"地区");
+    MTDistrictViewController * districtVc = [MTDistrictViewController new];
+    //设置呈现样式
+    districtVc.modalPresentationStyle = UIModalPresentationPopover;
+    //设置barButtonItem
+    districtVc.popoverPresentationController.barButtonItem = self.navigationItem.leftBarButtonItems[2];
+    //模态弹出
+    [self presentViewController:districtVc animated:YES completion:nil];
 }
 
 
