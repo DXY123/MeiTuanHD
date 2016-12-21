@@ -198,7 +198,7 @@
     self.btnCover.hidden = true;
     // 05 清空searchBar上的文字
     self.searchBar.text = @"";
-    //隐藏CitySearchResultVc
+    //06 隐藏CitySearchResultVc
     self.citySearchResultVc.view.hidden = true;
 }
 

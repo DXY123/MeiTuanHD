@@ -96,6 +96,11 @@
     return cell;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    return [NSString stringWithFormat:@"查询到%ld个结果",self.resultArray.count];
+}
+
+
 #pragma mark - 懒加载
 - (UITableView *)tableView{
     if (!_tableView) {
