@@ -23,7 +23,7 @@
 //#import <SDWebImage/UIImageView+WebCache.h>
 //#import <SVProgressHUD/SVProgressHUD.h>
 //#import <MJRefresh/MJRefresh.h>
-//#import "HMConst.h"
+#import "HMConst.h"
 #endif
 
 
@@ -39,3 +39,6 @@
 #define HMColor(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
 // 弱引用
 #define WeakSelf(vc) __weak typeof(vc *) weakSelf = self
+
+//通知宏
+#define MTNotificationCenter [NSNotificationCenter defaultCenter]

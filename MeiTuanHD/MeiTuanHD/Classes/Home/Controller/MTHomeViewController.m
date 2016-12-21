@@ -43,8 +43,24 @@ static NSString * const reuseIdentifier = @"Cell";
     [super viewDidLoad];
     [self setUpUI];
     [self setUpCollectionViewInfo];
+    
+    [self setUpNotificationCenter];
+    
 }
 
+#pragma mark - 注册通知中心
+- (void)setUpNotificationCenter{
+    //选择城市的通知注册
+    [MTNotificationCenter addObserver:self selector:@selector(cityDidChangeNotification:) name:HMCityDidChangeNotifacation object:nil];
+}
+
+
+
+#pragma mark - 监听选择城市通知方法
+- (void)cityDidChangeNotification:(NSNotification *)noti{
+    NSString * selectCityName = noti.userInfo[HMSelectCityName];
+    NSLog(@"选择的城市:%@",selectCityName);
+}
 
 
 #pragma mark - 设置视图
@@ -183,6 +199,10 @@ static NSString * const reuseIdentifier = @"Cell";
         
     }
     return _sortNavView;
+}
+
+- (void)dealloc{
+    [MTNotificationCenter removeObserver:self];
 }
 
 

@@ -96,6 +96,13 @@
     return cell;
 }
 
+//监听cell点击
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    //发送通知
+    [MTNotificationCenter postNotificationName:HMCityDidChangeNotifacation object:nil userInfo:@{HMSelectCityName: self.resultArray[indexPath.row]}];
+}
+
+
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     return [NSString stringWithFormat:@"查询到%ld个结果",self.resultArray.count];
 }
