@@ -198,6 +198,8 @@
     self.btnCover.hidden = true;
     // 05 清空searchBar上的文字
     self.searchBar.text = @"";
+    //隐藏CitySearchResultVc
+    self.citySearchResultVc.view.hidden = true;
 }
 
 #pragma mark - 监听取消按钮点击
@@ -212,8 +214,11 @@
     if (self.searchBar.text.length > 0) {
         //显示CitySearchResultVc
         self.citySearchResultVc.view.hidden = false;
+        //需要给citysearchResult的属性赋值
+        self.citySearchResultVc.searchText = self.searchBar.text;
+        
     }else{
-        //隐藏
+        //隐藏CitySearchResultVc
         self.citySearchResultVc.view.hidden = true;
     }
 }

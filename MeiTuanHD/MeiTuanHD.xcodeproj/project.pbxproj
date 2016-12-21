@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		814097B91E0A9BC9000FF54C /* MTCityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 814097B81E0A9BC9000FF54C /* MTCityModel.m */; };
 		814AB5DB1E051CCC00BF863F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 814AB5DA1E051CCC00BF863F /* main.m */; };
 		814AB5E61E051CCC00BF863F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 814AB5E51E051CCC00BF863F /* Assets.xcassets */; };
 		814AB5FD1E051F9800BF863F /* MTHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 814AB5FC1E051F9800BF863F /* MTHomeViewController.m */; };
@@ -34,6 +35,8 @@
 /* Begin PBXFileReference section */
 		232BB47BEE379D28E434F1D1 /* Pods-MeiTuanHD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeiTuanHD.release.xcconfig"; path = "Pods/Target Support Files/Pods-MeiTuanHD/Pods-MeiTuanHD.release.xcconfig"; sourceTree = "<group>"; };
 		36EBD786ED5543620D95FDA2 /* Pods-MeiTuanHD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeiTuanHD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MeiTuanHD/Pods-MeiTuanHD.debug.xcconfig"; sourceTree = "<group>"; };
+		814097B71E0A9BC9000FF54C /* MTCityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTCityModel.h; sourceTree = "<group>"; };
+		814097B81E0A9BC9000FF54C /* MTCityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTCityModel.m; sourceTree = "<group>"; };
 		814AB5D61E051CCC00BF863F /* MeiTuanHD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeiTuanHD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		814AB5DA1E051CCC00BF863F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		814AB5DC1E051CCC00BF863F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -171,6 +174,8 @@
 				81FE96371E08F1490002258A /* MTCategoryModel.m */,
 				81FE963F1E094D2F0002258A /* MTCityGroupModel.h */,
 				81FE96401E094D2F0002258A /* MTCityGroupModel.m */,
+				814097B71E0A9BC9000FF54C /* MTCityModel.h */,
+				814097B81E0A9BC9000FF54C /* MTCityModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -404,6 +409,7 @@
 				81593CE51E08705700E84987 /* UIImage+MTCategory.m in Sources */,
 				81593CE21E08655700E84987 /* MTHomeNavView.m in Sources */,
 				81B5033B1E098324008B03CF /* MTCitySearchResultViewController.m in Sources */,
+				814097B91E0A9BC9000FF54C /* MTCityModel.m in Sources */,
 				81FE963E1E0923180002258A /* MTCityViewController.m in Sources */,
 				81B8480C1E085D4C00F9CA40 /* MTNavigationController.m in Sources */,
 				81FE963B1E091C620002258A /* MTDistrictViewController.m in Sources */,

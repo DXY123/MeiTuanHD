@@ -10,4 +10,8 @@
 
 @interface MTCitySearchResultViewController : UIViewController
 
+//searchbar收入的结果
+@property(nonatomic,copy) NSString * searchText;
+
+
 @end
