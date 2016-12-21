@@ -17,6 +17,9 @@
 @property(nonatomic,strong) UITableView * tableView;
 //保存cities Plist文件的数据数组
 @property(nonatomic,strong) NSMutableArray * dataArray;
+//保存查询到的结果集
+@property(nonatomic,strong) NSMutableArray * resultArray;
+
 
 @end
 
@@ -39,13 +42,28 @@
     //字典转模型 保存数据
     [self.dataArray addObjectsFromArray:[NSArray yy_modelArrayWithClass:[MTCityModel class] json:plistArr]];
     NSLog(@"数据:%@",self.dataArray);
+    
 }
 
 #pragma mark - 重写set方法监听文字改变
 - (void)setSearchText:(NSString *)searchText{
     // 01 copy
     _searchText = [searchText copy];
-    NSLog(@"%@",_searchText);
+    //02 全部转成小写再查询
+    searchText = [searchText lowercaseString];
+    //2.5 每次有文字改变 都需要清空resultArray
+    [self.resultArray removeAllObjects];
+    //03 遍历保存城市模型的数组
+    for (MTCityModel * model in self.dataArray) {
+        //如果输入的内容属于模型属性的一部分,就要保存模型的name
+        if ([model.name containsString:searchText] || [model.pinYin containsString:searchText] || [model.pinYinHead containsString:searchText]) {
+            //添加name
+            [self.resultArray addObject:model.name];
+        }
+    }
+    //04 刷新UITableView
+    [self.tableView reloadData];
+    
     
 }
 
@@ -65,7 +83,7 @@
 
 #pragma mark - UITableViewDataSource 代理方法
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 3;
+    return self.resultArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -74,7 +92,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
     }
-    cell.textLabel.text = @"北京";
+    cell.textLabel.text = self.resultArray[indexPath.row];
     return cell;
 }
 
@@ -97,6 +115,15 @@
         _dataArray = [NSMutableArray array];
     }
     return _dataArray;
+}
+
+
+//保存查询结果城市集合
+-(NSMutableArray *)resultArray{
+    if (!_resultArray) {
+        _resultArray = [NSMutableArray array];
+    }
+    return _resultArray;
 }
 
 @end
