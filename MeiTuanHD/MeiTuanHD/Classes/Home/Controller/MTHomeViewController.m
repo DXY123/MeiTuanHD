@@ -13,6 +13,8 @@
 #import "MTCategoryViewController.h"
 //地区popover
 #import "MTDistrictViewController.h"
+//城市模型
+#import "MTCityModel.h"
 
 @interface MTHomeViewController ()
 
@@ -22,6 +24,8 @@
 @property(nonatomic,strong) MTHomeNavView * districtNavView;
 //排序
 @property(nonatomic,strong) MTHomeNavView * sortNavView;
+//选择的城市名
+@property(nonatomic,copy) NSString * selectCityName;
 
 @end
 
@@ -58,8 +62,11 @@ static NSString * const reuseIdentifier = @"Cell";
 
 #pragma mark - 监听选择城市通知方法
 - (void)cityDidChangeNotification:(NSNotification *)noti{
-    NSString * selectCityName = noti.userInfo[HMSelectCityName];
-    NSLog(@"选择的城市:%@",selectCityName);
+    self.selectCityName = noti.userInfo[HMSelectCityName];
+    NSLog(@"选择的城市:%@",self.selectCityName);
+
+    //关闭控制器
+    [self dismissViewControllerAnimated:true completion:nil];
 }
 
 
@@ -143,6 +150,33 @@ static NSString * const reuseIdentifier = @"Cell";
     districtVc.modalPresentationStyle = UIModalPresentationPopover;
     //设置barButtonItem
     districtVc.popoverPresentationController.barButtonItem = self.navigationItem.leftBarButtonItems[2];
+    
+    
+    //加载plist文件 cities.plist
+    //第一次不加载,selectCityName有值则不为第一次
+    if (self.selectCityName) {
+        //创建临时可变数组
+        NSMutableArray * tempArray = [NSMutableArray array];
+        //路径
+        NSString * file = [[NSBundle mainBundle] pathForResource:@"cities.plist" ofType:nil];
+        // 加载plist文件
+        NSArray * plistArray = [NSArray arrayWithContentsOfFile:file];
+        
+        //转模型保存数据
+        [tempArray addObjectsFromArray:[NSArray yy_modelArrayWithClass:[MTCityModel class] json:plistArray]];
+        
+        //遍历当前数组 得到子数组数据
+        for (MTCityModel * model in tempArray) {
+            //如果model中的name == selectCityName 我们就需要赋值
+            if ([model.name isEqualToString:self.selectCityName]) {
+                //赋值
+                districtVc.districtArray = model.districts;
+            }
+        }
+        
+        
+    }
+    
     //模态弹出
     [self presentViewController:districtVc animated:YES completion:nil];
 }

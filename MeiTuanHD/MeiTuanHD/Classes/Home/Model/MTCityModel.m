@@ -7,7 +7,15 @@
 //
 
 #import "MTCityModel.h"
+#import "MTDistrictModel.h"
+
 
 @implementation MTCityModel
+
+// 返回容器类中的所需要存放的数据类型 (以 Class 或 Class Name 的形式)。
+// @"HMDistrictModel" --> Class Name
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{@"districts" : [MTDistrictModel class]};
+}
 
 @end

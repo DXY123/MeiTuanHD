@@ -152,6 +152,14 @@
     return tempArr.copy;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    //发送通知
+    [MTNotificationCenter postNotificationName:HMCityDidChangeNotifacation object:nil userInfo:@{HMSelectCityName: self.dataArray[indexPath.section].cities[indexPath.row]}];
+    
+    
+    
+}
+
 #pragma mark - UISearchBarDelegate 代理方法
 #pragma mark - searchbar开始编辑
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
