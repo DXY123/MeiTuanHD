@@ -11,10 +11,14 @@
 #import "MTCityViewController.h"
 //自定义导航栏
 #import "MTNavigationController.h"
+//自定义下拉菜单
+#import "MTDropDownView.h"
 
 @interface MTDistrictViewController ()<UITableViewDelegate,UITableViewDataSource>
 //顶部tableView
 @property(nonatomic,strong) UITableView * headTableView;
+//下拉菜单
+@property(nonatomic,strong) MTDropDownView * dropDownView;
 
 @end
 
@@ -32,13 +36,20 @@
     
     //添加控件
     [self.view addSubview:self.headTableView];
-    
+    [self.view addSubview:self.dropDownView];
     
     //添加约束
     [self.headTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.right.equalTo(self.view);
         make.height.equalTo(44);
     }];
+    [self.dropDownView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.bottom.right.equalTo(self.view);
+        make.top.equalTo(self.headTableView.mas_bottom);
+    }];
+    
+    //为dropDownView赋值
+    self.dropDownView.districtArray = self.districtArray;
     
 }
 
@@ -113,6 +124,14 @@
         _headTableView.bounces = false;
     }
     return _headTableView;
+}
+
+//下拉菜单
+- (MTDropDownView *)dropDownView{
+    if (!_dropDownView) {
+        _dropDownView = [MTDropDownView new];
+    }
+    return _dropDownView;
 }
 
 @end
