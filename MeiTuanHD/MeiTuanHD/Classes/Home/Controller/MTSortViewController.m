@@ -95,7 +95,8 @@
 
 #pragma mark - 监听方法
 - (void)sortButtonClick:(UIButton *)sender{
-    
+    //发送通知
+    [MTNotificationCenter postNotificationName:HMSortDidChangeNotifacation object:nil userInfo:@{HMSelectSortModel: self.sortArray[sender.tag]}];
 }
 
 #pragma mark - 懒加载

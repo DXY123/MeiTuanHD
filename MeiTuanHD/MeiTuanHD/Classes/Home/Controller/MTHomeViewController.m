@@ -21,6 +21,8 @@
 #import "MTDistrictModel.h"
 //排序popover控制器
 #import "MTSortViewController.h"
+//排序模型
+#import "MTSortModel.h"
 
 @interface MTHomeViewController ()
 
@@ -66,6 +68,8 @@ static NSString * const reuseIdentifier = @"Cell";
     [MTNotificationCenter addObserver:self selector:@selector(categoryDidChangeNotification:) name:HMCategoryDidChangeNotifacation object:nil];
     //地区通知注册
     [MTNotificationCenter addObserver:self selector:@selector(districtDidChangeNotification:) name:HMDistrictDidChangeNotifacation object:nil];
+    //排序通知注册
+    [MTNotificationCenter addObserver:self selector:@selector(sortDidChangeNotification:) name:HMSortDidChangeNotifacation object:nil];
 }
 
 
@@ -103,7 +107,20 @@ static NSString * const reuseIdentifier = @"Cell";
     NSLog(@"模型name:%@",districtModel.name);
     NSLog(@"子标题:%@",selectDistrictSubtitle);
     
+    //关掉控制器
+    [self dismissViewControllerAnimated:true completion:nil];
+}
+
+#pragma mark - 监听选择排序方式通知方法
+- (void)sortDidChangeNotification:(NSNotification *)noti{
+    //接收模型
+    MTSortModel * sortModel = noti.userInfo[HMSelectSortModel];
     
+    NSLog(@"名称:%@",sortModel.label);
+    NSLog(@"数字:%@",sortModel.value);
+    
+    //关掉控制器
+    [self dismissViewControllerAnimated:true completion:nil];
 }
 
 
