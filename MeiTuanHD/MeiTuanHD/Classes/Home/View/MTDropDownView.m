@@ -164,7 +164,20 @@
             self.selectCategoryModel = categoryModel;
             //刷新右侧tableView
             [self.rightTableView reloadData];
+            //如果左侧选中的cell 对应的模型中subcategories.count == 0 就代表没有子分类数据 我们就需要发送通知
+            if (categoryModel.subcategories.count == 0) {
+                //发送通知 把模型直接传递到HomeVc中
+                [MTNotificationCenter postNotificationName:HMCategoryDidChangeNotifacation object:nil userInfo:@{HMSelectCategoryModel: self.selectCategoryModel}];
+            }
+        }else{
+            //如果有子分类而且选中了右侧的cell
+            [MTNotificationCenter postNotificationName:HMCategoryDidChangeNotifacation object:nil userInfo:@{HMSelectCategoryModel: self.selectCategoryModel,HMSelectCategorySubtitle: self.selectCategoryModel.subcategories[indexPath.row]}];
+            
+            
         }
+        
+        
+        
     }else{
         //如果是地区的数组,也就是districtArray有值
         //选择的是左侧列表

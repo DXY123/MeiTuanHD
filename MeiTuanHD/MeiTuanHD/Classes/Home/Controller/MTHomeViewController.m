@@ -15,6 +15,8 @@
 #import "MTDistrictViewController.h"
 //城市模型
 #import "MTCityModel.h"
+//分类模型
+#import "MTCategoryModel.h"
 
 @interface MTHomeViewController ()
 
@@ -56,6 +58,8 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)setUpNotificationCenter{
     //选择城市的通知注册
     [MTNotificationCenter addObserver:self selector:@selector(cityDidChangeNotification:) name:HMCityDidChangeNotifacation object:nil];
+    //分类通知注册
+    [MTNotificationCenter addObserver:self selector:@selector(categoryDidChangeNotification:) name:HMCategoryDidChangeNotifacation object:nil];
 }
 
 
@@ -67,6 +71,20 @@ static NSString * const reuseIdentifier = @"Cell";
 
     //关闭控制器
     [self dismissViewControllerAnimated:true completion:nil];
+}
+
+#pragma mark - 监听选额分类通知方法
+- (void)categoryDidChangeNotification:(NSNotification *)noti{
+    //分类模型
+    MTCategoryModel * categoryModel = noti.userInfo[HMSelectCategoryModel];
+    //分类分类的子标题
+    NSString * selectCategorySubtitle = noti.userInfo[HMSelectCategorySubtitle];
+    
+    NSLog(@"模型name:%@",categoryModel.name);
+    NSLog(@"子标题:%@",selectCategorySubtitle);
+    //关掉控制器
+    [self dismissViewControllerAnimated:true completion:nil];
+    
 }
 
 
