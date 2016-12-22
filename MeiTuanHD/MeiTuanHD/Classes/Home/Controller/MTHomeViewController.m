@@ -19,6 +19,8 @@
 #import "MTCategoryModel.h"
 //地区模型
 #import "MTDistrictModel.h"
+//排序popover控制器
+#import "MTSortViewController.h"
 
 @interface MTHomeViewController ()
 
@@ -220,6 +222,14 @@ static NSString * const reuseIdentifier = @"Cell";
 //排序
 - (void)sortClick{
     NSLog(@"排序");
+    //实例化
+    MTSortViewController * sortVc = [MTSortViewController new];
+    //设置呈现样式
+    sortVc.modalPresentationStyle = UIModalPresentationPopover;
+    //设置barButtonItem
+    sortVc.popoverPresentationController.barButtonItem = self.navigationItem.leftBarButtonItems[3];
+    //模态弹出
+    [self presentViewController:sortVc animated:YES completion:nil];
 }
 
 #pragma mark - 懒加载
