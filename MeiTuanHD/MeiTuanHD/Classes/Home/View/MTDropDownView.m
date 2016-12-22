@@ -11,6 +11,10 @@
 #import "MTCategoryModel.h"
 //地区模型
 #import "MTDistrictModel.h"
+//抽取的左侧cell
+#import "MTDropDownLeftCell.h"
+//抽取的右侧cell
+#import "MTDropDownRightCell.h"
 
 @interface MTDropDownView ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -84,22 +88,14 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    //如果category有值 表示分类下拉菜单
-    if (self.categoryArray) {
-        //左侧列表
-        if (self.leftTableView == tableView) {
-            static NSString * cellId = @"leftCellId";
-            UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-            if (cell == nil) {
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
-                
-                //设置背景View
-                cell.backgroundView =[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bg_dropdown_leftpart"]];
-                //设置选中背景View
-                cell.selectedBackgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bg_dropdown_left_selected"]];
-                
-            }
-            
+    //左侧列表
+    if (self.leftTableView == tableView) {
+        
+        //实例化cell
+        MTDropDownLeftCell * cell = [MTDropDownLeftCell dropDownViewCellWithTableView:tableView];
+        
+        //如果category有值
+        if (self.categoryArray) {
             //创建模型
             MTCategoryModel * categoryModel = self.categoryArray[indexPath.row];
             //赋值textLabel
@@ -117,41 +113,8 @@
                 //代表没有子分类数据,必须去掉箭头,因为cell重用问题
                 cell.accessoryType = UITableViewCellAccessoryNone;
             }
-            
-            return cell;
         }else{
-            //右侧列表
-            static NSString * cellId = @"rightCellId";
-            UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-            if (cell == nil) {
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
-                
-                //设置背景View
-                cell.backgroundView =[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bg_dropdown_rightpart"]];
-                //设置选中背景View
-                cell.selectedBackgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bg_dropdown_right_selected"]];
-                
-            }
-            //赋值textLabel
-            cell.textLabel.text = self.selectCategoryModel.subcategories[indexPath.row];
-            return cell;
-        }
-    }else{
-        //districtArray有值,表示地区下拉菜单
-        //左侧列表
-        if (self.leftTableView == tableView) {
-            static NSString * cellId = @"leftCellId";
-            UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-            if (cell == nil) {
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
-                
-                //设置背景View
-                cell.backgroundView =[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bg_dropdown_leftpart"]];
-                //设置选中背景View
-                cell.selectedBackgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bg_dropdown_left_selected"]];
-                
-            }
-            
+            //代表DistrictArray有值
             //创建模型
             MTDistrictModel * districtModel = self.districtArray[indexPath.row];
             //赋值textLabel
@@ -165,26 +128,27 @@
                 //代表没有子分类数据,必须去掉箭头,因为cell重用问题
                 cell.accessoryType = UITableViewCellAccessoryNone;
             }
-            
-            return cell;
+        }
+        
+        return cell;
+    }else{
+        
+        //实例化
+        MTDropDownRightCell * cell = [MTDropDownRightCell dropDownViewCellWithTableView:tableView];
+        
+        //如果categoryArray有值
+        if (self.categoryArray) {
+            //赋值textLabel
+            cell.textLabel.text = self.selectCategoryModel.subcategories[indexPath.row];
         }else{
-            //右侧列表
-            static NSString * cellId = @"rightCellId";
-            UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-            if (cell == nil) {
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
-                
-                //设置背景View
-                cell.backgroundView =[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bg_dropdown_rightpart"]];
-                //设置选中背景View
-                cell.selectedBackgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bg_dropdown_right_selected"]];
-                
-            }
+            //districtArray有值
             //赋值textLabel
             cell.textLabel.text = self.selectDistrictModel.subdistricts[indexPath.row];
-            return cell;
         }
+        
+        return cell;
     }
+    
     
 }
 
