@@ -173,7 +173,6 @@
             //如果有子分类而且选中了右侧的cell
             [MTNotificationCenter postNotificationName:HMCategoryDidChangeNotifacation object:nil userInfo:@{HMSelectCategoryModel: self.selectCategoryModel,HMSelectCategorySubtitle: self.selectCategoryModel.subcategories[indexPath.row]}];
             
-            
         }
         
         
@@ -188,7 +187,18 @@
             self.selectDistrictModel = districtModel;
             //刷新右侧tableView
             [self.rightTableView reloadData];
+            
+            //如果点击的是左侧cell 而且属性的数组.count==0 代表右侧无数据 需要发送通知
+            if (self.selectDistrictModel.subdistricts.count == 0) {
+                [MTNotificationCenter postNotificationName:HMDistrictDidChangeNotifacation object:nil userInfo:@{HMSelectDistrictModel: self.selectDistrictModel}];
+            }
+            
+        }else{
+            //右侧列表 一点击就要发通知
+            [MTNotificationCenter postNotificationName:HMDistrictDidChangeNotifacation object:nil userInfo:@{HMSelectDistrictModel: self.selectDistrictModel,HMSelectDistrictSubtitle: self.selectDistrictModel.subdistricts[indexPath.row]}];
         }
+        
+        
     }
     
 }
