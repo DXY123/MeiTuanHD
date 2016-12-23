@@ -53,6 +53,8 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //设置默认城市
+    self.selectCityName = @"北京";
     [self setUpUI];
     [self setUpCollectionViewInfo];
     
@@ -140,7 +142,7 @@ static NSString * const reuseIdentifier = @"Cell";
     
     //设置排序自定义view属性
     //title
-//    [self.sortNavView setLabTitleText:@"排序"];
+//    [self.sortNavView setLabTitleText:@"排序"]; //懒加载中设置
     [self.sortNavView setLabSubTitleText:sortModel.label];
     
     //关掉控制器
@@ -277,9 +279,12 @@ static NSString * const reuseIdentifier = @"Cell";
 //分类
 - (MTHomeNavView *)categoryNavView{
     if (!_categoryNavView) {
-        _categoryNavView = [MTHomeNavView new];
-        
         WeakSelf(MTHomeViewController);
+        _categoryNavView = [MTHomeNavView new];
+        //设置属性
+        [_categoryNavView setLabTitleText:@"全部分类"];
+        [_categoryNavView setLabSubTitleText:@""];
+        [_categoryNavView setIcon:@"icon_category_-1" hlIcon:@"icon_category_highlighted_-1"];
         
         //02 实例化
         [_categoryNavView setHomeNavViewBlock:^{
@@ -295,8 +300,12 @@ static NSString * const reuseIdentifier = @"Cell";
 //地区
 -(MTHomeNavView *)districtNavView{
     if (!_districtNavView) {
-        _districtNavView = [MTHomeNavView new];
         WeakSelf(MTHomeViewController);
+        _districtNavView = [MTHomeNavView new];
+        
+        //设置属性
+        [_districtNavView setLabTitleText:[NSString stringWithFormat:@"%@-全部",self.selectCityName]];
+        [_districtNavView setLabSubTitleText:@""];
         
         [_districtNavView setHomeNavViewBlock:^{
             [weakSelf districtClick];
@@ -312,6 +321,12 @@ static NSString * const reuseIdentifier = @"Cell";
     if (!_sortNavView) {
         _sortNavView = [MTHomeNavView new];
         WeakSelf(MTHomeViewController);
+        
+        //设置属性
+        [_sortNavView setLabTitleText:@"排序"];
+        [_sortNavView setLabSubTitleText:@"默认排序"];
+        [_sortNavView setIcon:@"icon_sort" hlIcon:@"icon_sort_highlighted"];
+        
         
         [_sortNavView setHomeNavViewBlock:^{
             [weakSelf sortClick];
