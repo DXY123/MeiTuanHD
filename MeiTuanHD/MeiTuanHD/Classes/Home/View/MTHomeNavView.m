@@ -39,6 +39,12 @@
 }
 //设置labSubTitle的text
 - (void)setLabSubTitleText:(NSString *)text{
+    //代表有子标题 防止上次没有子标题
+    if (text .length > 0) {
+        self.labTitle.height = 20;
+    }else{
+        self.labTitle.height = 40;
+    }
     self.labSubTitle.text = text;
 }
 //设置覆盖按钮的image和高亮的image

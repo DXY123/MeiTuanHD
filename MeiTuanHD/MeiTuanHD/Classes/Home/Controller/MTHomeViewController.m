@@ -92,6 +92,16 @@ static NSString * const reuseIdentifier = @"Cell";
     
     NSLog(@"模型name:%@",categoryModel.name);
     NSLog(@"子标题:%@",selectCategorySubtitle);
+    
+    //设置自定义视图显示的内容
+    //title
+    [self.categoryNavView setLabTitleText:categoryModel.name];
+    //设置子标题
+    [self.categoryNavView setLabSubTitleText:selectCategorySubtitle];
+    //设置icon
+    [self.categoryNavView setIcon:categoryModel.icon hlIcon:categoryModel.highlighted_icon];
+    
+    
     //关掉控制器
     [self dismissViewControllerAnimated:true completion:nil];
     
