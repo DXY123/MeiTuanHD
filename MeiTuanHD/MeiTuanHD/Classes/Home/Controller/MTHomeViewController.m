@@ -123,6 +123,7 @@ static NSString * const reuseIdentifier = @"Cell";
     //设置地区自定义view属性
     //设置title
     [self.districtNavView setLabTitleText:[NSString stringWithFormat:@"%@-%@",self.selectCityName,districtModel.name]];
+    //subtitle
     [self.districtNavView setLabSubTitleText:selectDistrictSubtitle];
     
     //关掉控制器
@@ -136,6 +137,11 @@ static NSString * const reuseIdentifier = @"Cell";
     
     NSLog(@"名称:%@",sortModel.label);
     NSLog(@"数字:%@",sortModel.value);
+    
+    //设置排序自定义view属性
+    //title
+//    [self.sortNavView setLabTitleText:@"排序"];
+    [self.sortNavView setLabSubTitleText:sortModel.label];
     
     //关掉控制器
     [self dismissViewControllerAnimated:true completion:nil];
