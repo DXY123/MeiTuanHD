@@ -32,6 +32,22 @@
     return self;
 }
 
+#pragma mark - 供外界赋值的方法
+//设置labTitle的text
+- (void)setLabTitleText:(NSString *)text{
+    self.labTitle.text = text;
+}
+//设置labSubTitle的text
+- (void)setLabSubTitleText:(NSString *)text{
+    self.labSubTitle.text = text;
+}
+//设置覆盖按钮的image和高亮的image
+- (void)setIcon:(NSString *)icon hlIcon:(NSString *)hlIcon{
+    [self.btnCover setImage:[UIImage imageNamed:icon] forState:UIControlStateNormal];
+    [self.btnCover setImage:[UIImage imageNamed:hlIcon] forState:UIControlStateHighlighted];
+}
+
+
 #pragma mark - 设置视图
 - (void)setUpUI{
     self.size = CGSizeMake(160, 40);
