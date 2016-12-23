@@ -44,15 +44,49 @@
     self = [super init];
     if (self) {
         UICollectionViewFlowLayout * layout = [[UICollectionViewFlowLayout alloc]init];
+        //设置itemSize
+        layout.itemSize = CGSizeMake(305, 305);
         self = [self initWithCollectionViewLayout:layout];
     }
     return self;
 }
 
+
+#pragma mark - 监听屏幕旋转
+-(void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator{
+    
+    //记录cell的列数
+    NSInteger col = 0;
+    
+    //判断横竖屏
+    if (size.width > size.height) {
+        //横屏
+        col = 3;
+    }else{
+        //竖屏
+        col = 2;
+    }
+    //间距
+    CGFloat inset = (size.width - col * 305) / (col + 1);
+    
+    //得到layout
+    UICollectionViewFlowLayout * layout = (UICollectionViewFlowLayout *)self.collectionViewLayout;
+    
+    layout.minimumLineSpacing = inset;
+//    layout.minimumInteritemSpacing = inset;
+    
+    layout.sectionInset = UIEdgeInsetsMake(inset, inset, inset, inset);
+    
+    
+}
+
+
 static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //手动调用屏幕旋转方法
+    [self viewWillTransitionToSize:[UIScreen mainScreen].bounds.size withTransitionCoordinator:self.transitionCoordinator];
     //设置默认城市
     self.selectCityName = @"北京";
     [self setUpUI];
@@ -274,6 +308,19 @@ static NSString * const reuseIdentifier = @"Cell";
     //模态弹出
     [self presentViewController:sortVc animated:YES completion:nil];
 }
+
+
+#pragma mark - UICollectionView DataSource
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return 30;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    cell.backgroundColor = [UIColor brownColor];
+    return cell;
+}
+
 
 #pragma mark - 懒加载
 //分类
