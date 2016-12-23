@@ -23,6 +23,8 @@
 #import "MTSortViewController.h"
 //排序模型
 #import "MTSortModel.h"
+//自定义的cell
+#import "MTDealCell.h"
 
 @interface MTHomeViewController ()
 
@@ -238,7 +240,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 #pragma mark - 设置collectionView相关
 - (void)setUpCollectionViewInfo{
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    [self.collectionView registerClass:[MTDealCell class] forCellWithReuseIdentifier:reuseIdentifier];
 }
 
 
@@ -316,7 +318,7 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    MTDealCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     cell.backgroundColor = [UIColor brownColor];
     return cell;
 }
