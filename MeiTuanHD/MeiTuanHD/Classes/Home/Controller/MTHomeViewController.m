@@ -78,7 +78,10 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)cityDidChangeNotification:(NSNotification *)noti{
     self.selectCityName = noti.userInfo[HMSelectCityName];
     NSLog(@"选择的城市:%@",self.selectCityName);
-
+    
+    [self.districtNavView setLabTitleText:[NSString stringWithFormat:@"%@-全部",self.selectCityName]];
+    [self.districtNavView setLabSubTitleText:@""];
+    
     //关闭控制器
     [self dismissViewControllerAnimated:true completion:nil];
 }
@@ -116,6 +119,11 @@ static NSString * const reuseIdentifier = @"Cell";
     
     NSLog(@"模型name:%@",districtModel.name);
     NSLog(@"子标题:%@",selectDistrictSubtitle);
+    
+    //设置地区自定义view属性
+    //设置title
+    [self.districtNavView setLabTitleText:[NSString stringWithFormat:@"%@-%@",self.selectCityName,districtModel.name]];
+    [self.districtNavView setLabSubTitleText:selectDistrictSubtitle];
     
     //关掉控制器
     [self dismissViewControllerAnimated:true completion:nil];
