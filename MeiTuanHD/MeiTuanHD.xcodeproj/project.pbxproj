@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		81193D5D1E0FA1F900612134 /* DPAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 81193D591E0FA1F900612134 /* DPAPI.m */; };
 		81193D5E1E0FA1F900612134 /* DPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 81193D5C1E0FA1F900612134 /* DPRequest.m */; };
+		81193D611E0FA51900612134 /* MTDealModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81193D601E0FA51900612134 /* MTDealModel.m */; };
 		814097B91E0A9BC9000FF54C /* MTCityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 814097B81E0A9BC9000FF54C /* MTCityModel.m */; };
 		814097BC1E0AA94D000FF54C /* HMConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 814097BB1E0AA94D000FF54C /* HMConst.m */; };
 		814097BF1E0BB25E000FF54C /* MTDistrictModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 814097BE1E0BB25E000FF54C /* MTDistrictModel.m */; };
@@ -49,6 +50,8 @@
 		81193D5A1E0FA1F900612134 /* DPConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPConstants.h; sourceTree = "<group>"; };
 		81193D5B1E0FA1F900612134 /* DPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPRequest.h; sourceTree = "<group>"; };
 		81193D5C1E0FA1F900612134 /* DPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPRequest.m; sourceTree = "<group>"; };
+		81193D5F1E0FA51900612134 /* MTDealModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDealModel.h; sourceTree = "<group>"; };
+		81193D601E0FA51900612134 /* MTDealModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTDealModel.m; sourceTree = "<group>"; };
 		814097B71E0A9BC9000FF54C /* MTCityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTCityModel.h; sourceTree = "<group>"; };
 		814097B81E0A9BC9000FF54C /* MTCityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTCityModel.m; sourceTree = "<group>"; };
 		814097BA1E0AA94D000FF54C /* HMConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMConst.h; sourceTree = "<group>"; };
@@ -222,6 +225,8 @@
 				814097BE1E0BB25E000FF54C /* MTDistrictModel.m */,
 				814097C91E0BFF47000FF54C /* MTSortModel.h */,
 				814097CA1E0BFF47000FF54C /* MTSortModel.m */,
+				81193D5F1E0FA51900612134 /* MTDealModel.h */,
+				81193D601E0FA51900612134 /* MTDealModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -464,6 +469,7 @@
 				81FE96381E08F1490002258A /* MTCategoryModel.m in Sources */,
 				81FCDD551E0D131400DBED73 /* MTDealCell.m in Sources */,
 				81593CE51E08705700E84987 /* UIImage+MTCategory.m in Sources */,
+				81193D611E0FA51900612134 /* MTDealModel.m in Sources */,
 				814097BC1E0AA94D000FF54C /* HMConst.m in Sources */,
 				81593CE21E08655700E84987 /* MTHomeNavView.m in Sources */,
 				81B5033B1E098324008B03CF /* MTCitySearchResultViewController.m in Sources */,

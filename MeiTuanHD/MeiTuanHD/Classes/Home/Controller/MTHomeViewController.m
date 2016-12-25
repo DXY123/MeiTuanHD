@@ -25,6 +25,8 @@
 #import "MTSortModel.h"
 //自定义的cell
 #import "MTDealCell.h"
+//首页数据模型
+#import "MTDealModel.h"
 
 @interface MTHomeViewController ()<DPRequestDelegate>
 
@@ -36,6 +38,8 @@
 @property(nonatomic,strong) MTHomeNavView * sortNavView;
 //选择的城市名
 @property(nonatomic,copy) NSString * selectCityName;
+//保存首页数据数组
+@property(nonatomic,strong) NSMutableArray * dataArray;
 
 @end
 
@@ -123,11 +127,18 @@ static NSString * const reuseIdentifier = @"Cell";
 //请求成功
 -(void)request:(DPRequest *)request didFinishLoadingWithResult:(id)result{
     NSLog(@"请求成功:%@",result);
+    
+    //字典转模型保存数据
+    [self.dataArray addObjectsFromArray:[NSArray yy_modelArrayWithClass:[MTDealModel class] json:result[@"deals"]]];
+    
+    NSLog(@"%@",self.dataArray);
+    
 }
 
 //请求失败
 -(void)request:(DPRequest *)request didFailWithError:(NSError *)error{
     NSLog(@"请求失败:%@",error);
+    
 }
 
 
@@ -417,6 +428,14 @@ static NSString * const reuseIdentifier = @"Cell";
     }
     return _sortNavView;
 }
+
+- (NSMutableArray *)dataArray{
+    if (!_dataArray) {
+        _dataArray = [NSMutableArray array];
+    }
+    return _dataArray;
+}
+
 
 - (void)dealloc{
     [MTNotificationCenter removeObserver:self];
