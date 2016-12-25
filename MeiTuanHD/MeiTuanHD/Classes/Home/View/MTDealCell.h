@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class MTDealModel;
+
 @interface MTDealCell : UICollectionViewCell
+
+//提供属性供外界赋值
+@property(nonatomic,strong) MTDealModel * dealModel;
 
 @end

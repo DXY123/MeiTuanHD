@@ -20,7 +20,7 @@
 #define MAS_SHORTHAND_GLOBALS
 #import <Masonry/Masonry.h>
 #import "DPAPI.h"
-//#import <SDWebImage/UIImageView+WebCache.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 //#import <SVProgressHUD/SVProgressHUD.h>
 //#import <MJRefresh/MJRefresh.h>
 #import "HMConst.h"

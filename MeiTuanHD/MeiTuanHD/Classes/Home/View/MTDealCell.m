@@ -7,6 +7,7 @@
 //
 
 #import "MTDealCell.h"
+#import "MTDealModel.h"
 
 @interface MTDealCell ()
 
@@ -36,6 +37,31 @@
     }
     return self;
 }
+
+#pragma mark - dealModel赋值
+- (void)setDealModel:(MTDealModel *)dealModel{
+    _dealModel = dealModel;
+    
+    //logo设置图片
+    [self.imgLogo sd_setImageWithURL:[NSURL URLWithString:dealModel.s_image_url] placeholderImage:[UIImage imageNamed:@"placeholder_deal"]];
+    
+    //设置title
+    self.labTitle.text = dealModel.title;
+    
+    //设置描述
+    self.labDesc.text = dealModel.desc;
+    
+    //现价
+    self.labCurrent.text = [NSString stringWithFormat:@"￥ %.2f",dealModel.current_price];
+    
+    //原价
+    self.labList.text = [NSString stringWithFormat:@"￥ %.2f",dealModel.list_price];
+    
+    //已售
+    self.labNumber.text = [NSString stringWithFormat:@"已售 %zd",dealModel.purchase_count];
+    
+}
+
 
 #pragma mark - 设置视图
 - (void)setUpUI{
@@ -87,11 +113,11 @@
     }];
     
     //设置默认值
-    self.labTitle.text = @"标题";
-    self.labDesc.text = @"bibibibibibibbibibibibibibibibbibibibibibibibibibbibibibibibibibibibbibibibibibibibibibbibibibibibibibibibbibibibibibibibibibbibibibibibibibibibibib";
-    self.labCurrent.text = @"￥ 99.00";
-    self.labList.text = @"￥ 199.00";
-    self.labNumber.text = @"已售 19999";
+//    self.labTitle.text = @"标题";
+//    self.labDesc.text = @"bibibibibibibbibibibibibibibibbibibibibibibibibibbibibibibibibibibibbibibibibibibibibibbibibibibibibibibibbibibibibibibibibibbibibibibibibibibibibib";
+//    self.labCurrent.text = @"￥ 99.00";
+//    self.labList.text = @"￥ 199.00";
+//    self.labNumber.text = @"已售 19999";
     
     
 }

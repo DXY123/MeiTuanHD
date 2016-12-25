@@ -9,5 +9,6 @@ target 'MeiTuanHD' do
 
 pod 'Masonry'
 pod 'YYModel'
+pod 'SDWebImage'
 
 end

@@ -126,12 +126,15 @@ static NSString * const reuseIdentifier = @"Cell";
 
 //请求成功
 -(void)request:(DPRequest *)request didFinishLoadingWithResult:(id)result{
-    NSLog(@"请求成功:%@",result);
+//    NSLog(@"请求成功:%@",result);
     
     //字典转模型保存数据
     [self.dataArray addObjectsFromArray:[NSArray yy_modelArrayWithClass:[MTDealModel class] json:result[@"deals"]]];
     
-    NSLog(@"%@",self.dataArray);
+    //刷新
+    [self.collectionView reloadData];
+    
+//    NSLog(@"%@",self.dataArray);
     
 }
 
@@ -358,12 +361,14 @@ static NSString * const reuseIdentifier = @"Cell";
 
 #pragma mark - UICollectionView DataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 30;
+    return self.dataArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     MTDealCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     cell.backgroundColor = [UIColor brownColor];
+    //赋值
+    cell.dealModel = self.dataArray[indexPath.item];
     return cell;
 }
 
