@@ -24,8 +24,14 @@
 /** 团购包含商品原价值 */
 @property (nonatomic, assign) CGFloat list_price;
 
+//处理后的原价字符串
+@property(nonatomic,copy) NSString * listPriceStr;
+
 /** 团购价格 */
 @property (nonatomic, assign) CGFloat current_price;
+
+//处理后的现价字符串
+@property(nonatomic,copy) NSString * currentPriceStr;
 
 /** 团购当前已购买数 */
 @property (assign, nonatomic) int purchase_count;

@@ -52,15 +52,17 @@
     self.labDesc.text = dealModel.desc;
     
     //现价
-    self.labCurrent.text = [NSString stringWithFormat:@"￥ %.2f",dealModel.current_price];
+    self.labCurrent.text = dealModel.currentPriceStr;
     
     //原价
-    self.labList.text = [NSString stringWithFormat:@"￥ %.2f",dealModel.list_price];
+    self.labList.text = dealModel.listPriceStr;
     
     //已售
     self.labNumber.text = [NSString stringWithFormat:@"已售 %zd",dealModel.purchase_count];
     
 }
+
+
 
 
 #pragma mark - 设置视图
