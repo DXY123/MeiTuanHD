@@ -26,7 +26,7 @@
 //自定义的cell
 #import "MTDealCell.h"
 
-@interface MTHomeViewController ()
+@interface MTHomeViewController ()<DPRequestDelegate>
 
 //分类
 @property(nonatomic,strong) MTHomeNavView * categoryNavView;
@@ -96,7 +96,40 @@ static NSString * const reuseIdentifier = @"Cell";
     
     [self setUpNotificationCenter];
     
+    [self loadDealData];
+    
 }
+
+#pragma mark - 加载数据
+- (void)loadDealData{
+    //实例化
+    DPAPI * api = [DPAPI new];
+    
+    //请求参数
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    
+    //城市参数(必传)
+    params[@"city"] = self.selectCityName;
+    
+    NSLog(@"请求参数:%@",params);
+    
+    //发送请求
+    [api requestWithURL:@"v1/deal/find_deals" params:params delegate:self];
+}
+
+
+#pragma mark - DPRequestDelegate
+
+//请求成功
+-(void)request:(DPRequest *)request didFinishLoadingWithResult:(id)result{
+    NSLog(@"请求成功:%@",result);
+}
+
+//请求失败
+-(void)request:(DPRequest *)request didFailWithError:(NSError *)error{
+    NSLog(@"请求失败:%@",error);
+}
+
 
 #pragma mark - 注册通知中心
 - (void)setUpNotificationCenter{

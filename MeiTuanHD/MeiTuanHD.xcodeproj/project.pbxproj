@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		81193D5D1E0FA1F900612134 /* DPAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 81193D591E0FA1F900612134 /* DPAPI.m */; };
+		81193D5E1E0FA1F900612134 /* DPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 81193D5C1E0FA1F900612134 /* DPRequest.m */; };
 		814097B91E0A9BC9000FF54C /* MTCityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 814097B81E0A9BC9000FF54C /* MTCityModel.m */; };
 		814097BC1E0AA94D000FF54C /* HMConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 814097BB1E0AA94D000FF54C /* HMConst.m */; };
 		814097BF1E0BB25E000FF54C /* MTDistrictModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 814097BE1E0BB25E000FF54C /* MTDistrictModel.m */; };
@@ -42,6 +44,11 @@
 /* Begin PBXFileReference section */
 		232BB47BEE379D28E434F1D1 /* Pods-MeiTuanHD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeiTuanHD.release.xcconfig"; path = "Pods/Target Support Files/Pods-MeiTuanHD/Pods-MeiTuanHD.release.xcconfig"; sourceTree = "<group>"; };
 		36EBD786ED5543620D95FDA2 /* Pods-MeiTuanHD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeiTuanHD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MeiTuanHD/Pods-MeiTuanHD.debug.xcconfig"; sourceTree = "<group>"; };
+		81193D581E0FA1F900612134 /* DPAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPAPI.h; sourceTree = "<group>"; };
+		81193D591E0FA1F900612134 /* DPAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPAPI.m; sourceTree = "<group>"; };
+		81193D5A1E0FA1F900612134 /* DPConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPConstants.h; sourceTree = "<group>"; };
+		81193D5B1E0FA1F900612134 /* DPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPRequest.h; sourceTree = "<group>"; };
+		81193D5C1E0FA1F900612134 /* DPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPRequest.m; sourceTree = "<group>"; };
 		814097B71E0A9BC9000FF54C /* MTCityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTCityModel.h; sourceTree = "<group>"; };
 		814097B81E0A9BC9000FF54C /* MTCityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTCityModel.m; sourceTree = "<group>"; };
 		814097BA1E0AA94D000FF54C /* HMConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMConst.h; sourceTree = "<group>"; };
@@ -111,6 +118,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		81193D571E0FA1F900612134 /* dianpingapi */ = {
+			isa = PBXGroup;
+			children = (
+				81193D581E0FA1F900612134 /* DPAPI.h */,
+				81193D591E0FA1F900612134 /* DPAPI.m */,
+				81193D5A1E0FA1F900612134 /* DPConstants.h */,
+				81193D5B1E0FA1F900612134 /* DPRequest.h */,
+				81193D5C1E0FA1F900612134 /* DPRequest.m */,
+			);
+			path = dianpingapi;
+			sourceTree = "<group>";
+		};
 		814AB5CD1E051CCC00BF863F = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +290,7 @@
 		814AB5F91E051EFD00BF863F /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				81193D571E0FA1F900612134 /* dianpingapi */,
 			);
 			path = Libs;
 			sourceTree = "<group>";
@@ -451,7 +471,9 @@
 				814097B91E0A9BC9000FF54C /* MTCityModel.m in Sources */,
 				81FE963E1E0923180002258A /* MTCityViewController.m in Sources */,
 				814097CB1E0BFF47000FF54C /* MTSortModel.m in Sources */,
+				81193D5D1E0FA1F900612134 /* DPAPI.m in Sources */,
 				814097C21E0BCDF6000FF54C /* MTDropDownLeftCell.m in Sources */,
+				81193D5E1E0FA1F900612134 /* DPRequest.m in Sources */,
 				81B8480C1E085D4C00F9CA40 /* MTNavigationController.m in Sources */,
 				81FE963B1E091C620002258A /* MTDistrictViewController.m in Sources */,
 				814AB5FD1E051F9800BF863F /* MTHomeViewController.m in Sources */,
