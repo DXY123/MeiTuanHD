@@ -27,6 +27,7 @@
 		81B8480C1E085D4C00F9CA40 /* MTNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B8480B1E085D4C00F9CA40 /* MTNavigationController.m */; };
 		81B8480F1E08604700F9CA40 /* UIBarButtonItem+MTCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B8480E1E08604700F9CA40 /* UIBarButtonItem+MTCategory.m */; };
 		81B848121E0862CF00F9CA40 /* UIView+HMCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B848111E0862CF00F9CA40 /* UIView+HMCategory.m */; };
+		81E8A9421E11421C00099A99 /* MTCenterLineLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81E8A9411E11421C00099A99 /* MTCenterLineLabel.m */; };
 		81FCDD551E0D131400DBED73 /* MTDealCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FCDD541E0D131400DBED73 /* MTDealCell.m */; };
 		81FE96291E08DE480002258A /* MTCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FE96281E08DE480002258A /* MTCategoryViewController.m */; };
 		81FE962C1E08DFC70002258A /* MTDropDownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FE962B1E08DFC70002258A /* MTDropDownView.m */; };
@@ -87,6 +88,8 @@
 		81B8480E1E08604700F9CA40 /* UIBarButtonItem+MTCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+MTCategory.m"; sourceTree = "<group>"; };
 		81B848101E0862CF00F9CA40 /* UIView+HMCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HMCategory.h"; sourceTree = "<group>"; };
 		81B848111E0862CF00F9CA40 /* UIView+HMCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HMCategory.m"; sourceTree = "<group>"; };
+		81E8A9401E11421C00099A99 /* MTCenterLineLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTCenterLineLabel.h; sourceTree = "<group>"; };
+		81E8A9411E11421C00099A99 /* MTCenterLineLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTCenterLineLabel.m; sourceTree = "<group>"; };
 		81FCDD531E0D131400DBED73 /* MTDealCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDealCell.h; sourceTree = "<group>"; };
 		81FCDD541E0D131400DBED73 /* MTDealCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTDealCell.m; sourceTree = "<group>"; };
 		81FE96271E08DE480002258A /* MTCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTCategoryViewController.h; sourceTree = "<group>"; };
@@ -244,6 +247,8 @@
 				814097C41E0BD0E1000FF54C /* MTDropDownRightCell.m */,
 				81FCDD531E0D131400DBED73 /* MTDealCell.h */,
 				81FCDD541E0D131400DBED73 /* MTDealCell.m */,
+				81E8A9401E11421C00099A99 /* MTCenterLineLabel.h */,
+				81E8A9411E11421C00099A99 /* MTCenterLineLabel.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -481,6 +486,7 @@
 				814097C21E0BCDF6000FF54C /* MTDropDownLeftCell.m in Sources */,
 				81193D5E1E0FA1F900612134 /* DPRequest.m in Sources */,
 				81B8480C1E085D4C00F9CA40 /* MTNavigationController.m in Sources */,
+				81E8A9421E11421C00099A99 /* MTCenterLineLabel.m in Sources */,
 				81FE963B1E091C620002258A /* MTDistrictViewController.m in Sources */,
 				814AB5FD1E051F9800BF863F /* MTHomeViewController.m in Sources */,
 				81FE96431E0950650002258A /* Foundation+Log.m in Sources */,

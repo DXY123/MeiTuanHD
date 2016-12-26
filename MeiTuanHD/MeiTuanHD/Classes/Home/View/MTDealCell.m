@@ -8,6 +8,8 @@
 
 #import "MTDealCell.h"
 #import "MTDealModel.h"
+//删除线
+#import "MTCenterLineLabel.h"
 
 @interface MTDealCell ()
 
@@ -22,7 +24,7 @@
 //现价
 @property(nonatomic,strong) UILabel * labCurrent;
 //原价
-@property(nonatomic,strong) UILabel * labList;
+@property(nonatomic,strong) MTCenterLineLabel * labList;
 //已售
 @property(nonatomic,strong) UILabel * labNumber;
 
@@ -174,9 +176,9 @@
 }
 
 //原价
-- (UILabel *)labList{
+- (MTCenterLineLabel *)labList{
     if (!_labList) {
-        _labList = [UILabel new];
+        _labList = [MTCenterLineLabel new];
         _labList.font = [UIFont systemFontOfSize:14];
         _labList.textColor = [UIColor darkGrayColor];
     }
