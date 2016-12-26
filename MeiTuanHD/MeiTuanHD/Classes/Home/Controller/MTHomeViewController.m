@@ -40,6 +40,8 @@
 @property(nonatomic,copy) NSString * selectCityName;
 //保存首页数据数组
 @property(nonatomic,strong) NSMutableArray * dataArray;
+//没有团购数据
+@property(nonatomic,strong) UIImageView * imgNoData;
 
 @end
 
@@ -133,6 +135,8 @@ static NSString * const reuseIdentifier = @"Cell";
     
     //刷新
     [self.collectionView reloadData];
+    
+    self.imgNoData.hidden = !(self.dataArray.count == 0);
     
 //    NSLog(@"%@",self.dataArray);
     
@@ -238,6 +242,14 @@ static NSString * const reuseIdentifier = @"Cell";
     self.collectionView.backgroundColor = HMColor(222, 222, 222);
     [self setUpRightNav];
     [self setUpLeftNav];
+    
+    [self.view addSubview:self.imgNoData];
+    
+    //添加约束
+    [self.imgNoData mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.view);
+    }];
+    
 }
 
 #pragma mark - 设置左侧导航
@@ -439,6 +451,16 @@ static NSString * const reuseIdentifier = @"Cell";
         _dataArray = [NSMutableArray array];
     }
     return _dataArray;
+}
+
+//没有数据
+- (UIImageView *)imgNoData{
+    if (!_imgNoData) {
+        _imgNoData = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_deals_empty"]];
+        //隐藏
+        _imgNoData.hidden = true;
+    }
+    return _imgNoData;
 }
 
 
