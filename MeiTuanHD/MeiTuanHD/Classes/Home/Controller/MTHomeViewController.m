@@ -142,6 +142,10 @@ static NSString * const reuseIdentifier = @"Cell";
 
 #pragma mark - 加载数据
 - (void)loadDealData{
+    
+    //显示网络指示器
+    [SVProgressHUD show];
+    
     //实例化
     DPAPI * api = [DPAPI new];
     
@@ -181,6 +185,8 @@ static NSString * const reuseIdentifier = @"Cell";
 
 //请求成功
 -(void)request:(DPRequest *)request didFinishLoadingWithResult:(id)result{
+    //关闭网络指示器
+    [SVProgressHUD dismiss];
 //    NSLog(@"请求成功:%@",result);
     
     //如果是下拉刷新 -> currentPage == 1 需要把数组中元素清空
@@ -215,6 +221,9 @@ static NSString * const reuseIdentifier = @"Cell";
 //请求失败
 -(void)request:(DPRequest *)request didFailWithError:(NSError *)error{
     NSLog(@"请求失败:%@",error);
+    
+    //提示
+    [SVProgressHUD showErrorWithStatus:@"请求失败"];
     
     //结束刷新
     [self.collectionView.mj_header endRefreshing];

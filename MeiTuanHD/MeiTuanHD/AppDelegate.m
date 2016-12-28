@@ -18,6 +18,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [self setUpSVProgressHud];
+    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
     self.window.backgroundColor = [UIColor whiteColor];
@@ -26,6 +28,16 @@
     [self.window makeKeyAndVisible];
     
     return YES;
+}
+
+
+//设置网络指示器
+- (void)setUpSVProgressHud{
+    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleCustom];
+    //设置背景颜色
+    [SVProgressHUD setBackgroundColor:HMColor(21, 188, 173)];
+    //设置字体颜色
+    [SVProgressHUD setForegroundColor:[UIColor whiteColor]];
 }
 
 
