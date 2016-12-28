@@ -40,4 +40,36 @@
     
 }
 
+//重写set方法 - 新单
+- (void)setPublish_date:(NSString *)publish_date{
+    _publish_date = publish_date;
+    self.isDealNew = [self dealPublishDate:publish_date];
+}
+
+
+#pragma mark - 处理是否是新单
+- (BOOL)dealPublishDate:(NSString *)publish_date{
+    
+    //1 获取当前时间
+    NSDate * currentDate = [NSDate date];
+    //2 格式化
+    NSDateFormatter * df = [NSDateFormatter new];
+    //3 设置格式
+    df.dateFormat = @"yyyy-MM-dd";
+    //获取团购日期
+    NSDate * dealDate = [df dateFromString:publish_date];
+    
+    //比较
+    if ([currentDate compare:dealDate] == NSOrderedAscending) {
+        //是新单
+        return true;
+    }
+    return false;
+    
+    //可以合成一句
+    //    return ([currentDate compare:dealDate] == NSOrderedAscending);
+    
+    
+}
+
 @end

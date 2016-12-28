@@ -45,6 +45,9 @@
 /** 团购发布上线日期*/
 @property (copy, nonatomic) NSString *publish_date;
 
+/** 判断是否是新单 */
+@property (assign, nonatomic) BOOL isDealNew;
+
 /** 团购HTML5页面链接，适用于移动应用和联网车载应用*/
 @property (copy, nonatomic) NSString *deal_h5_url;
 

@@ -27,6 +27,8 @@
 @property(nonatomic,strong) MTCenterLineLabel * labList;
 //已售
 @property(nonatomic,strong) UILabel * labNumber;
+//新单
+@property(nonatomic,strong) UIImageView * imgDealNew;
 
 @end
 
@@ -62,9 +64,15 @@
     //已售
     self.labNumber.text = [NSString stringWithFormat:@"已售 %zd",dealModel.purchase_count];
     
+    
+    self.imgDealNew.hidden = !dealModel.isDealNew;
+    
 }
 
 //不能在这处理价格,否则cell重用机制会在每次加载cell的时候都重新调用这个方法计算
+
+//处理是否是新单
+//在dealModel中处理了
 
 
 #pragma mark - 设置视图
@@ -77,6 +85,7 @@
     [self.contentView addSubview:self.labCurrent];
     [self.contentView addSubview:self.labList];
     [self.contentView addSubview:self.labNumber];
+    [self.contentView addSubview:self.imgDealNew];
     
     
     //添加约束
@@ -116,13 +125,9 @@
         make.right.equalTo(self.contentView).offset(-10);
     }];
     
-    //设置默认值
-//    self.labTitle.text = @"标题";
-//    self.labDesc.text = @"bibibibibibibbibibibibibibibibbibibibibibibibibibbibibibibibibibibibbibibibibibibibibibbibibibibibibibibibbibibibibibibibibibbibibibibibibibibibibib";
-//    self.labCurrent.text = @"￥ 99.00";
-//    self.labList.text = @"￥ 199.00";
-//    self.labNumber.text = @"已售 19999";
-    
+    [self.imgDealNew mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.right.equalTo(self.contentView);
+    }];
     
 }
 
@@ -195,6 +200,14 @@
         _labNumber.textAlignment = NSTextAlignmentRight;
     }
     return _labNumber;
+}
+
+//新单
+- (UIImageView *)imgDealNew{
+    if (!_imgDealNew) {
+        _imgDealNew = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"ic_deal_new"]];
+    }
+    return _imgDealNew;
 }
 
 @end
