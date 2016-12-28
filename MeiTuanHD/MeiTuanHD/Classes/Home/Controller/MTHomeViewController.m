@@ -38,6 +38,8 @@
 @property(nonatomic,strong) MTHomeNavView * sortNavView;
 //选择的城市名
 @property(nonatomic,copy) NSString * selectCityName;
+//选择的区域名
+@property(nonatomic,copy) NSString * selectDistrictName;
 //保存首页数据数组
 @property(nonatomic,strong) NSMutableArray * dataArray;
 //没有团购数据
@@ -117,6 +119,11 @@ static NSString * const reuseIdentifier = @"Cell";
     //城市参数(必传)
     params[@"city"] = self.selectCityName;
     
+    //区域
+    if (self.selectDistrictName) {
+        params[@"region"] = self.selectDistrictName;
+    }
+    
     NSLog(@"请求参数:%@",params);
     
     //发送请求
@@ -131,14 +138,13 @@ static NSString * const reuseIdentifier = @"Cell";
 //    NSLog(@"请求成功:%@",result);
     
     //字典转模型保存数据
-    [self.dataArray addObjectsFromArray:[NSArray yy_modelArrayWithClass:[MTDealModel class] json:result[@"deals"]]];
-    
-    //刷新
-    [self.collectionView reloadData];
-    
-    self.imgNoData.hidden = !(self.dataArray.count == 0);
-    
-//    NSLog(@"%@",self.dataArray);
+//    [self.dataArray addObjectsFromArray:[NSArray yy_modelArrayWithClass:[MTDealModel class] json:result[@"deals"]]];
+//    
+//    //刷新
+//    [self.collectionView reloadData];
+//    
+//    //是否显示无数据Logo
+//    self.imgNoData.hidden = !(self.dataArray.count == 0);
     
 }
 
@@ -173,6 +179,12 @@ static NSString * const reuseIdentifier = @"Cell";
     
     //关闭控制器
     [self dismissViewControllerAnimated:true completion:nil];
+    
+    //需要把地区的数据清空
+    self.selectDistrictName = nil;
+    
+    //加载数据
+    [self loadDealData];
 }
 
 #pragma mark - 监听选择分类通知方法
@@ -217,6 +229,20 @@ static NSString * const reuseIdentifier = @"Cell";
     
     //关掉控制器
     [self dismissViewControllerAnimated:true completion:nil];
+    
+    //如果selectDistrictSubtitle == nil 就代表没有子分类数据 或者有子分类数据 但子分类数据 == 全部
+    if (selectDistrictSubtitle == nil || [selectDistrictSubtitle isEqualToString:@"全部"]) {
+        self.selectDistrictName = districtModel.name;
+    }else{
+        self.selectDistrictName = selectDistrictSubtitle;
+    }
+    //如果selectDistrictName == 全部
+    if ([self.selectDistrictName isEqualToString:@"全部"]) {
+        self.selectDistrictName = nil;
+    }
+    
+    //加载数据
+    [self loadDealData];
 }
 
 #pragma mark - 监听选择排序方式通知方法

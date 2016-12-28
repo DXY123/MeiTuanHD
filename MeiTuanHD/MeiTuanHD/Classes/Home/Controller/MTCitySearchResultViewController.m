@@ -41,7 +41,7 @@
     
     //字典转模型 保存数据
     [self.dataArray addObjectsFromArray:[NSArray yy_modelArrayWithClass:[MTCityModel class] json:plistArr]];
-    NSLog(@"数据:%@",self.dataArray);
+
     
 }
 
