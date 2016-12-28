@@ -48,6 +48,8 @@
 @property(nonatomic,strong) NSMutableArray * dataArray;
 //没有团购数据
 @property(nonatomic,strong) UIImageView * imgNoData;
+//记录当前页码
+@property(nonatomic,assign)NSInteger currentPage;
 
 @end
 
@@ -103,12 +105,38 @@ static NSString * const reuseIdentifier = @"Cell";
     [self viewWillTransitionToSize:[UIScreen mainScreen].bounds.size withTransitionCoordinator:self.transitionCoordinator];
     //设置默认城市
     self.selectCityName = @"北京";
+    //设置默认页码
+    self.currentPage = 1;
     [self setUpUI];
     [self setUpCollectionViewInfo];
     
     [self setUpNotificationCenter];
     
-    [self loadDealData];
+    [self addRefresh];
+    
+}
+
+
+#pragma mark - 设置下拉刷新和上拉加载更多
+- (void)addRefresh{
+    //下拉刷新
+    self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        //page = 1
+        self.currentPage = 1;
+        [self loadDealData];
+    }];
+    
+    
+    //上拉加载更多
+    self.collectionView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        // page++
+        self.currentPage++;
+        [self loadDealData];
+    }];
+    
+    
+    //首次进入就需要下拉刷新
+    [self.collectionView.mj_header beginRefreshing];
     
 }
 
@@ -139,6 +167,9 @@ static NSString * const reuseIdentifier = @"Cell";
         params[@"sort"] = self.selectSort;
     }
     
+    //页码
+    params[@"page"] = @(self.currentPage);
+    
     NSLog(@"请求参数:%@",params);
     
     //发送请求
@@ -152,20 +183,42 @@ static NSString * const reuseIdentifier = @"Cell";
 -(void)request:(DPRequest *)request didFinishLoadingWithResult:(id)result{
 //    NSLog(@"请求成功:%@",result);
     
+    //如果是下拉刷新 -> currentPage == 1 需要把数组中元素清空
+    if (self.currentPage == 1) {
+        [self.dataArray removeAllObjects];
+    }
+    
     //字典转模型保存数据
-//    [self.dataArray addObjectsFromArray:[NSArray yy_modelArrayWithClass:[MTDealModel class] json:result[@"deals"]]];
-//    
-//    //刷新
-//    [self.collectionView reloadData];
-//    
-//    //是否显示无数据Logo
-//    self.imgNoData.hidden = !(self.dataArray.count == 0);
+    [self.dataArray addObjectsFromArray:[NSArray yy_modelArrayWithClass:[MTDealModel class] json:result[@"deals"]]];
+    
+    //刷新
+    [self.collectionView reloadData];
+    
+    //是否显示无数据Logo
+    self.imgNoData.hidden = !(self.dataArray.count == 0);
+    
+    //结束刷新
+    [self.collectionView.mj_header endRefreshing];
+    [self.collectionView.mj_footer endRefreshing];
+    
+    //得到团购个数的总数
+    NSInteger totalCount = [result[@"total_count"] integerValue];
+    
+    //如果团购的总数 == dataArray.count 代表服务器没有数据了 就不可以上拉加载更多
+    if (totalCount == self.dataArray.count) {
+        [self.collectionView.mj_footer endRefreshingWithNoMoreData];
+    }
+    
     
 }
 
 //请求失败
 -(void)request:(DPRequest *)request didFailWithError:(NSError *)error{
     NSLog(@"请求失败:%@",error);
+    
+    //结束刷新
+    [self.collectionView.mj_header endRefreshing];
+    [self.collectionView.mj_footer endRefreshing];
     
 }
 
@@ -199,7 +252,7 @@ static NSString * const reuseIdentifier = @"Cell";
     self.selectDistrictName = nil;
     
     //加载数据
-    [self loadDealData];
+    [self.collectionView.mj_header beginRefreshing];
 }
 
 #pragma mark - 监听选择分类通知方法
@@ -237,7 +290,7 @@ static NSString * const reuseIdentifier = @"Cell";
     }
     
     //加载数据
-    [self loadDealData];
+    [self.collectionView.mj_header beginRefreshing];
     
 }
 
@@ -272,7 +325,7 @@ static NSString * const reuseIdentifier = @"Cell";
     }
     
     //加载数据
-    [self loadDealData];
+    [self.collectionView.mj_header beginRefreshing];
 }
 
 #pragma mark - 监听选择排序方式通知方法
@@ -295,7 +348,7 @@ static NSString * const reuseIdentifier = @"Cell";
     self.selectSort = sortModel.value;
     
     //加载数据
-    [self loadDealData];
+    [self.collectionView.mj_header beginRefreshing];
     
 }
 
