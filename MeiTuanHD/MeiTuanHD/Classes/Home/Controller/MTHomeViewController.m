@@ -40,6 +40,10 @@
 @property(nonatomic,copy) NSString * selectCityName;
 //选择的区域名
 @property(nonatomic,copy) NSString * selectDistrictName;
+//选择的分类名
+@property(nonatomic,copy) NSString * selectCategoryName;
+//选择的排序名
+@property(nonatomic,strong) NSNumber * selectSort;
 //保存首页数据数组
 @property(nonatomic,strong) NSMutableArray * dataArray;
 //没有团购数据
@@ -119,9 +123,20 @@ static NSString * const reuseIdentifier = @"Cell";
     //城市参数(必传)
     params[@"city"] = self.selectCityName;
     
+    
+    //分类
+    if (self.selectCategoryName) {
+        params[@"category"] = self.selectCategoryName;
+    }
+    
     //区域
     if (self.selectDistrictName) {
         params[@"region"] = self.selectDistrictName;
+    }
+    
+    //排序
+    if (self.selectSort) {
+        params[@"sort"] = self.selectSort;
     }
     
     NSLog(@"请求参数:%@",params);
@@ -209,6 +224,21 @@ static NSString * const reuseIdentifier = @"Cell";
     //关掉控制器
     [self dismissViewControllerAnimated:true completion:nil];
     
+    //如果selectCategorySubtitle == nil 表示没有子分类数据 如果有子分类数据 但是selectCategorySubtitle == 全部
+    if (selectCategorySubtitle == nil || [selectCategorySubtitle isEqualToString:@"全部"]) {
+        self.selectCategoryName = categoryModel.name;
+    }else{
+        self.selectCategoryName = selectCategorySubtitle;
+    }
+    
+    //如果self.selectCategoryName == 全部分类
+    if ([self.selectCategoryName isEqualToString:@"全部分类"]) {
+        self.selectCategoryName = nil;
+    }
+    
+    //加载数据
+    [self loadDealData];
+    
 }
 
 #pragma mark - 监听选择地区通知方法
@@ -260,6 +290,13 @@ static NSString * const reuseIdentifier = @"Cell";
     
     //关掉控制器
     [self dismissViewControllerAnimated:true completion:nil];
+    
+    
+    self.selectSort = sortModel.value;
+    
+    //加载数据
+    [self loadDealData];
+    
 }
 
 
