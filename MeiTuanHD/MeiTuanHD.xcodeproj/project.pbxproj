@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8101B9941E141A9A006B787C /* AwesomeMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 8101B9911E141A9A006B787C /* AwesomeMenu.m */; };
+		8101B9951E141A9A006B787C /* AwesomeMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8101B9931E141A9A006B787C /* AwesomeMenuItem.m */; };
 		81193D5D1E0FA1F900612134 /* DPAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 81193D591E0FA1F900612134 /* DPAPI.m */; };
 		81193D5E1E0FA1F900612134 /* DPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 81193D5C1E0FA1F900612134 /* DPRequest.m */; };
 		81193D611E0FA51900612134 /* MTDealModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81193D601E0FA51900612134 /* MTDealModel.m */; };
@@ -46,6 +48,10 @@
 /* Begin PBXFileReference section */
 		232BB47BEE379D28E434F1D1 /* Pods-MeiTuanHD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeiTuanHD.release.xcconfig"; path = "Pods/Target Support Files/Pods-MeiTuanHD/Pods-MeiTuanHD.release.xcconfig"; sourceTree = "<group>"; };
 		36EBD786ED5543620D95FDA2 /* Pods-MeiTuanHD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeiTuanHD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MeiTuanHD/Pods-MeiTuanHD.debug.xcconfig"; sourceTree = "<group>"; };
+		8101B9901E141A9A006B787C /* AwesomeMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwesomeMenu.h; sourceTree = "<group>"; };
+		8101B9911E141A9A006B787C /* AwesomeMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwesomeMenu.m; sourceTree = "<group>"; };
+		8101B9921E141A9A006B787C /* AwesomeMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwesomeMenuItem.h; sourceTree = "<group>"; };
+		8101B9931E141A9A006B787C /* AwesomeMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwesomeMenuItem.m; sourceTree = "<group>"; };
 		81193D581E0FA1F900612134 /* DPAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPAPI.h; sourceTree = "<group>"; };
 		81193D591E0FA1F900612134 /* DPAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPAPI.m; sourceTree = "<group>"; };
 		81193D5A1E0FA1F900612134 /* DPConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPConstants.h; sourceTree = "<group>"; };
@@ -124,6 +130,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8101B98F1E141A9A006B787C /* AwesomeMenu */ = {
+			isa = PBXGroup;
+			children = (
+				8101B9901E141A9A006B787C /* AwesomeMenu.h */,
+				8101B9911E141A9A006B787C /* AwesomeMenu.m */,
+				8101B9921E141A9A006B787C /* AwesomeMenuItem.h */,
+				8101B9931E141A9A006B787C /* AwesomeMenuItem.m */,
+			);
+			path = AwesomeMenu;
+			sourceTree = "<group>";
+		};
 		81193D571E0FA1F900612134 /* dianpingapi */ = {
 			isa = PBXGroup;
 			children = (
@@ -300,6 +317,7 @@
 		814AB5F91E051EFD00BF863F /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				8101B98F1E141A9A006B787C /* AwesomeMenu */,
 				81193D571E0FA1F900612134 /* dianpingapi */,
 			);
 			path = Libs;
@@ -467,6 +485,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81FE96291E08DE480002258A /* MTCategoryViewController.m in Sources */,
+				8101B9951E141A9A006B787C /* AwesomeMenuItem.m in Sources */,
 				81B8480F1E08604700F9CA40 /* UIBarButtonItem+MTCategory.m in Sources */,
 				81B848121E0862CF00F9CA40 /* UIView+HMCategory.m in Sources */,
 				814097BF1E0BB25E000FF54C /* MTDistrictModel.m in Sources */,
@@ -475,6 +494,7 @@
 				81FCDD551E0D131400DBED73 /* MTDealCell.m in Sources */,
 				81593CE51E08705700E84987 /* UIImage+MTCategory.m in Sources */,
 				81193D611E0FA51900612134 /* MTDealModel.m in Sources */,
+				8101B9941E141A9A006B787C /* AwesomeMenu.m in Sources */,
 				814097BC1E0AA94D000FF54C /* HMConst.m in Sources */,
 				81593CE21E08655700E84987 /* MTHomeNavView.m in Sources */,
 				81B5033B1E098324008B03CF /* MTCitySearchResultViewController.m in Sources */,

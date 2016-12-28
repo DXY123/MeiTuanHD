@@ -27,6 +27,8 @@
 #import "MTDealCell.h"
 //首页数据模型
 #import "MTDealModel.h"
+//菜单框架
+#import "AwesomeMenu.h"
 
 @interface MTHomeViewController ()<DPRequestDelegate>
 
@@ -365,8 +367,9 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark - 设置视图
 - (void)setUpUI{
     self.collectionView.backgroundColor = HMColor(222, 222, 222);
-    [self setUpRightNav];
     [self setUpLeftNav];
+    [self setUpRightNav];
+    [self setUpAwesomeMenu];
     
     [self.view addSubview:self.imgNoData];
     
@@ -376,6 +379,47 @@ static NSString * const reuseIdentifier = @"Cell";
     }];
     
 }
+
+#pragma mark - 集成AwesomeMenu
+- (void)setUpAwesomeMenu{
+    // 开始按钮
+    AwesomeMenuItem *startItem = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:@"icon_pathMenu_background_normal"] highlightedImage:[UIImage imageNamed:@"icon_pathMenu_background_highlighted"] ContentImage:[UIImage imageNamed:@"icon_pathMenu_mainMine_normal"] highlightedContentImage:[UIImage imageNamed:@"icon_pathMenu_mainMine_highlighted"]];
+    
+    // 我
+    AwesomeMenuItem *mineItem = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:@"bg_pathMenu_black_normal"] highlightedImage:[UIImage imageNamed:@"bg_pathMenu_black_normal"] ContentImage:[UIImage imageNamed:@"icon_pathMenu_mine_normal"] highlightedContentImage:[UIImage imageNamed:@"icon_pathMenu_mine_highlighted"]];
+    // 收藏
+    AwesomeMenuItem *collectItem = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:@"bg_pathMenu_black_normal"] highlightedImage:[UIImage imageNamed:@"bg_pathMenu_black_normal"] ContentImage:[UIImage imageNamed:@"icon_pathMenu_collect_normal"] highlightedContentImage:[UIImage imageNamed:@"icon_pathMenu_collect_highlighted"]];
+    // 预览
+    AwesomeMenuItem *scanItem = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:@"bg_pathMenu_black_normal"] highlightedImage:[UIImage imageNamed:@"bg_pathMenu_black_normal"] ContentImage:[UIImage imageNamed:@"icon_pathMenu_scan_normal"] highlightedContentImage:[UIImage imageNamed:@"icon_pathMenu_scan_highlighted"]];
+    // 更多
+    AwesomeMenuItem *moreItem = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:@"bg_pathMenu_black_normal"] highlightedImage:[UIImage imageNamed:@"bg_pathMenu_black_normal"] ContentImage:[UIImage imageNamed:@"icon_pathMenu_more_normal"] highlightedContentImage:[UIImage imageNamed:@"icon_pathMenu_more_highlighted"]];
+    NSArray *items = @[mineItem, collectItem, scanItem, moreItem];
+    
+    //实例化
+    AwesomeMenu * menu = [[AwesomeMenu alloc] initWithFrame:CGRectZero startItem:startItem menuItems:items];
+    
+    //想设置约束必须先设置point
+    menu.startPoint = CGPointMake(0, 0);
+    
+    //禁止按钮图案转动
+    menu.rotateAddButton = false;
+    
+    //设置子菜单展现样式
+    menu.menuWholeAngle = M_PI_2;
+    
+    //添加
+    [self.view addSubview:menu];
+    
+    //约束
+    [menu mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.offset(50);
+        make.bottom.equalTo(self.view).offset(-100);
+    }];
+    
+    
+}
+
+
 
 #pragma mark - 设置左侧导航
 - (void)setUpLeftNav{
