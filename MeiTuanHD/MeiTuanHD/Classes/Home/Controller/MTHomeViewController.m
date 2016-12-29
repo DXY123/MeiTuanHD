@@ -29,6 +29,8 @@
 #import "MTDealModel.h"
 //菜单框架
 #import "AwesomeMenu.h"
+//详情控制器
+#import "MTDetailViewController.h"
 
 @interface MTHomeViewController ()<DPRequestDelegate,AwesomeMenuDelegate>
 
@@ -613,6 +615,14 @@ static NSString * const reuseIdentifier = @"Cell";
     //赋值
     cell.dealModel = self.dataArray[indexPath.item];
     return cell;
+}
+
+//选中cell
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    //实例化
+    MTDetailViewController * detailVc = [MTDetailViewController new];
+    //模态弹出
+    [self presentViewController:detailVc animated:true completion:nil];
 }
 
 

@@ -30,6 +30,7 @@
 		81B8480F1E08604700F9CA40 /* UIBarButtonItem+MTCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B8480E1E08604700F9CA40 /* UIBarButtonItem+MTCategory.m */; };
 		81B848121E0862CF00F9CA40 /* UIView+HMCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B848111E0862CF00F9CA40 /* UIView+HMCategory.m */; };
 		81E8A9421E11421C00099A99 /* MTCenterLineLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81E8A9411E11421C00099A99 /* MTCenterLineLabel.m */; };
+		81EF3E231E153C4E00D53296 /* MTDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81EF3E221E153C4E00D53296 /* MTDetailViewController.m */; };
 		81FCDD551E0D131400DBED73 /* MTDealCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FCDD541E0D131400DBED73 /* MTDealCell.m */; };
 		81FE96291E08DE480002258A /* MTCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FE96281E08DE480002258A /* MTCategoryViewController.m */; };
 		81FE962C1E08DFC70002258A /* MTDropDownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FE962B1E08DFC70002258A /* MTDropDownView.m */; };
@@ -96,6 +97,8 @@
 		81B848111E0862CF00F9CA40 /* UIView+HMCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HMCategory.m"; sourceTree = "<group>"; };
 		81E8A9401E11421C00099A99 /* MTCenterLineLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTCenterLineLabel.h; sourceTree = "<group>"; };
 		81E8A9411E11421C00099A99 /* MTCenterLineLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTCenterLineLabel.m; sourceTree = "<group>"; };
+		81EF3E211E153C4E00D53296 /* MTDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDetailViewController.h; sourceTree = "<group>"; };
+		81EF3E221E153C4E00D53296 /* MTDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTDetailViewController.m; sourceTree = "<group>"; };
 		81FCDD531E0D131400DBED73 /* MTDealCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDealCell.h; sourceTree = "<group>"; };
 		81FCDD541E0D131400DBED73 /* MTDealCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTDealCell.m; sourceTree = "<group>"; };
 		81FE96271E08DE480002258A /* MTCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTCategoryViewController.h; sourceTree = "<group>"; };
@@ -197,6 +200,7 @@
 		814AB5F01E051EFD00BF863F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				81EF3E1D1E153C3200D53296 /* Detail */,
 				814AB5F51E051EFD00BF863F /* Main */,
 				814AB5F11E051EFD00BF863F /* Home */,
 			);
@@ -328,6 +332,39 @@
 			children = (
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		81EF3E1D1E153C3200D53296 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				81EF3E1E1E153C3200D53296 /* Controller */,
+				81EF3E1F1E153C3200D53296 /* Model */,
+				81EF3E201E153C3200D53296 /* View */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		81EF3E1E1E153C3200D53296 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				81EF3E211E153C4E00D53296 /* MTDetailViewController.h */,
+				81EF3E221E153C4E00D53296 /* MTDetailViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		81EF3E1F1E153C3200D53296 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		81EF3E201E153C3200D53296 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		81FE962D1E08F06A0002258A /* Plist */ = {
@@ -509,6 +546,7 @@
 				81E8A9421E11421C00099A99 /* MTCenterLineLabel.m in Sources */,
 				81FE963B1E091C620002258A /* MTDistrictViewController.m in Sources */,
 				814AB5FD1E051F9800BF863F /* MTHomeViewController.m in Sources */,
+				81EF3E231E153C4E00D53296 /* MTDetailViewController.m in Sources */,
 				81FE96431E0950650002258A /* Foundation+Log.m in Sources */,
 				814AB5DB1E051CCC00BF863F /* main.m in Sources */,
 				81FE962C1E08DFC70002258A /* MTDropDownView.m in Sources */,
