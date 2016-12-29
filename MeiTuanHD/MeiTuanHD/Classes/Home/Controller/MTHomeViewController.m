@@ -30,7 +30,7 @@
 //菜单框架
 #import "AwesomeMenu.h"
 
-@interface MTHomeViewController ()<DPRequestDelegate>
+@interface MTHomeViewController ()<DPRequestDelegate,AwesomeMenuDelegate>
 
 //分类
 @property(nonatomic,strong) MTHomeNavView * categoryNavView;
@@ -398,6 +398,12 @@ static NSString * const reuseIdentifier = @"Cell";
     //实例化
     AwesomeMenu * menu = [[AwesomeMenu alloc] initWithFrame:CGRectZero startItem:startItem menuItems:items];
     
+    //设置代理
+    menu.delegate = self;
+    
+    //设置透明度
+    menu.alpha = 0.5;
+    
     //想设置约束必须先设置point
     menu.startPoint = CGPointMake(0, 0);
     
@@ -420,6 +426,62 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 
+#pragma mark - AwesomeMenuDelegate
+
+//打开
+- (void)awesomeMenuWillAnimateOpen:(AwesomeMenu *)menu{
+    //menu 透明度设置为1
+    
+    //把menu的image和高粱image换掉
+    [UIView animateWithDuration:0.3 animations:^{
+        menu.alpha = 1;
+        menu.contentImage = [UIImage imageNamed:@"icon_pathMenu_cross_normal"];
+        menu.highlightedContentImage = [UIImage imageNamed:@"icon_pathMenu_cross_highlighted"];
+        
+    }];
+}
+
+//关闭
+- (void)awesomeMenuWillAnimateClose:(AwesomeMenu *)menu{
+    //menu透明度设置为0.5
+    //图片再换回来
+    [UIView animateWithDuration:0.3 animations:^{
+        menu.alpha = 0.5;
+        menu.contentImage = [UIImage imageNamed:@"icon_pathMenu_mainMine_normal"];
+        menu.highlightedContentImage = [UIImage imageNamed:@"icon_pathMenu_mainMine_highlighted"];
+        
+    }];
+}
+
+//监听子控件点击
+- (void)awesomeMenu:(AwesomeMenu *)menu didSelectIndex:(NSInteger)idx{
+    [self awesomeMenuWillAnimateClose:menu];
+    switch (idx) {
+        case 0:
+        {
+            NSLog(@"我的")
+        }
+            break;
+        case 1:
+        {
+            NSLog(@"收藏")
+        }
+            break;
+        case 2:
+        {
+            NSLog(@"预览")
+        }
+            break;
+        case 3:
+        {
+            NSLog(@"更多")
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
 
 #pragma mark - 设置左侧导航
 - (void)setUpLeftNav{
