@@ -8,6 +8,8 @@
 
 #import "MTDetailCenterView.h"
 #import "MTCenterLineLabel.h"
+//自定义详情底部的View 为了更好设置约束,所以写在CenterView中
+#import "MTDetailBottomView.h"
 
 @interface MTDetailCenterView ()
 
@@ -27,6 +29,8 @@
 @property(nonatomic,strong) UIButton * btnCollect;
 //分享
 @property(nonatomic,strong) UIButton * btnShare;
+//自定义底部view
+@property(nonatomic,strong) MTDetailBottomView * detailBottomView;
 
 @end
 
@@ -56,6 +60,7 @@
     [self addSubview:self.btnBuy];
     [self addSubview:self.btnCollect];
     [self addSubview:self.btnShare];
+    [self addSubview:self.detailBottomView];
     
     [self.imgLogo mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.equalTo(10);
@@ -101,6 +106,13 @@
         make.left.equalTo(self.btnCollect.mas_right).offset(40);
         make.size.equalTo(CGSizeMake(70, 70));
         make.centerY.equalTo(self.btnBuy);
+    }];
+    
+    [self.detailBottomView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.offset(15);
+        make.right.offset(-15);
+        make.top.equalTo(self.btnBuy.mas_bottom).offset(30);
+        make.height.equalTo(80);
     }];
     
     //设置默认值
@@ -193,6 +205,13 @@
         [_btnShare setImage:[UIImage imageNamed:@"icon_share_highlighted"] forState:UIControlStateSelected];
     }
     return _btnShare;
+}
+
+- (MTDetailBottomView *)detailBottomView{
+    if (!_detailBottomView) {
+        _detailBottomView = [MTDetailBottomView new];
+    }
+    return _detailBottomView;
 }
 
 @end

@@ -11,6 +11,7 @@
 		8101B9951E141A9A006B787C /* AwesomeMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8101B9931E141A9A006B787C /* AwesomeMenuItem.m */; };
 		810611621E16B41C00B3D3E4 /* MTDetailNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = 810611611E16B41C00B3D3E4 /* MTDetailNavView.m */; };
 		810611651E16B87D00B3D3E4 /* MTDetailCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 810611641E16B87D00B3D3E4 /* MTDetailCenterView.m */; };
+		810611681E16BEC600B3D3E4 /* MTDetailBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 810611671E16BEC600B3D3E4 /* MTDetailBottomView.m */; };
 		81193D5D1E0FA1F900612134 /* DPAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 81193D591E0FA1F900612134 /* DPAPI.m */; };
 		81193D5E1E0FA1F900612134 /* DPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 81193D5C1E0FA1F900612134 /* DPRequest.m */; };
 		81193D611E0FA51900612134 /* MTDealModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81193D601E0FA51900612134 /* MTDealModel.m */; };
@@ -59,6 +60,8 @@
 		810611611E16B41C00B3D3E4 /* MTDetailNavView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTDetailNavView.m; sourceTree = "<group>"; };
 		810611631E16B87D00B3D3E4 /* MTDetailCenterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDetailCenterView.h; sourceTree = "<group>"; };
 		810611641E16B87D00B3D3E4 /* MTDetailCenterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTDetailCenterView.m; sourceTree = "<group>"; };
+		810611661E16BEC600B3D3E4 /* MTDetailBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDetailBottomView.h; sourceTree = "<group>"; };
+		810611671E16BEC600B3D3E4 /* MTDetailBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTDetailBottomView.m; sourceTree = "<group>"; };
 		81193D581E0FA1F900612134 /* DPAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPAPI.h; sourceTree = "<group>"; };
 		81193D591E0FA1F900612134 /* DPAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPAPI.m; sourceTree = "<group>"; };
 		81193D5A1E0FA1F900612134 /* DPConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPConstants.h; sourceTree = "<group>"; };
@@ -373,6 +376,8 @@
 				810611611E16B41C00B3D3E4 /* MTDetailNavView.m */,
 				810611631E16B87D00B3D3E4 /* MTDetailCenterView.h */,
 				810611641E16B87D00B3D3E4 /* MTDetailCenterView.m */,
+				810611661E16BEC600B3D3E4 /* MTDetailBottomView.h */,
+				810611671E16BEC600B3D3E4 /* MTDetailBottomView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -532,6 +537,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				810611621E16B41C00B3D3E4 /* MTDetailNavView.m in Sources */,
+				810611681E16BEC600B3D3E4 /* MTDetailBottomView.m in Sources */,
 				81FE96291E08DE480002258A /* MTCategoryViewController.m in Sources */,
 				8101B9951E141A9A006B787C /* AwesomeMenuItem.m in Sources */,
 				81B8480F1E08604700F9CA40 /* UIBarButtonItem+MTCategory.m in Sources */,
