@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8101B9941E141A9A006B787C /* AwesomeMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 8101B9911E141A9A006B787C /* AwesomeMenu.m */; };
 		8101B9951E141A9A006B787C /* AwesomeMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8101B9931E141A9A006B787C /* AwesomeMenuItem.m */; };
+		810611621E16B41C00B3D3E4 /* MTDetailNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = 810611611E16B41C00B3D3E4 /* MTDetailNavView.m */; };
 		81193D5D1E0FA1F900612134 /* DPAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 81193D591E0FA1F900612134 /* DPAPI.m */; };
 		81193D5E1E0FA1F900612134 /* DPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 81193D5C1E0FA1F900612134 /* DPRequest.m */; };
 		81193D611E0FA51900612134 /* MTDealModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81193D601E0FA51900612134 /* MTDealModel.m */; };
@@ -53,6 +54,8 @@
 		8101B9911E141A9A006B787C /* AwesomeMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwesomeMenu.m; sourceTree = "<group>"; };
 		8101B9921E141A9A006B787C /* AwesomeMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwesomeMenuItem.h; sourceTree = "<group>"; };
 		8101B9931E141A9A006B787C /* AwesomeMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwesomeMenuItem.m; sourceTree = "<group>"; };
+		810611601E16B41C00B3D3E4 /* MTDetailNavView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDetailNavView.h; sourceTree = "<group>"; };
+		810611611E16B41C00B3D3E4 /* MTDetailNavView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTDetailNavView.m; sourceTree = "<group>"; };
 		81193D581E0FA1F900612134 /* DPAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPAPI.h; sourceTree = "<group>"; };
 		81193D591E0FA1F900612134 /* DPAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPAPI.m; sourceTree = "<group>"; };
 		81193D5A1E0FA1F900612134 /* DPConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPConstants.h; sourceTree = "<group>"; };
@@ -363,6 +366,8 @@
 		81EF3E201E153C3200D53296 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				810611601E16B41C00B3D3E4 /* MTDetailNavView.h */,
+				810611611E16B41C00B3D3E4 /* MTDetailNavView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -521,6 +526,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				810611621E16B41C00B3D3E4 /* MTDetailNavView.m in Sources */,
 				81FE96291E08DE480002258A /* MTCategoryViewController.m in Sources */,
 				8101B9951E141A9A006B787C /* AwesomeMenuItem.m in Sources */,
 				81B8480F1E08604700F9CA40 /* UIBarButtonItem+MTCategory.m in Sources */,

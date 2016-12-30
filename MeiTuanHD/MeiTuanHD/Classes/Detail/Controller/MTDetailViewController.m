@@ -7,8 +7,12 @@
 //
 
 #import "MTDetailViewController.h"
+#import "MTDetailNavView.h"
+
 
 @interface MTDetailViewController ()
+//自定义导航的view
+@property(nonatomic,strong) MTDetailNavView * detailNavView;
 
 @end
 
@@ -16,22 +20,39 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self setUpUI];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - 监听方法
+//自定义navView的返回按钮点击事件
+- (void)backClick{
+    [self dismissViewControllerAnimated:true completion:nil];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - 设置视图
+- (void)setUpUI{
+    self.view.backgroundColor = HMColor(222, 222, 222);
+    //添加控件
+    [self.view addSubview:self.detailNavView];
+    
+    [self.detailNavView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.equalTo(self.view);
+        make.size.equalTo(CGSizeMake(400, 64));
+    }];
+    
 }
-*/
+
+
+#pragma mark - 懒加载
+- (MTDetailNavView *)detailNavView{
+    if (!_detailNavView) {
+        WeakSelf(MTDetailViewController);
+        _detailNavView = [MTDetailNavView new];
+        [_detailNavView setDetailNavViewBlock:^{
+            [weakSelf backClick];
+        }];
+    }
+    return _detailNavView;
+}
 
 @end
