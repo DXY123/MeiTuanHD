@@ -10,6 +10,7 @@
 		8101B9941E141A9A006B787C /* AwesomeMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 8101B9911E141A9A006B787C /* AwesomeMenu.m */; };
 		8101B9951E141A9A006B787C /* AwesomeMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8101B9931E141A9A006B787C /* AwesomeMenuItem.m */; };
 		810611621E16B41C00B3D3E4 /* MTDetailNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = 810611611E16B41C00B3D3E4 /* MTDetailNavView.m */; };
+		810611651E16B87D00B3D3E4 /* MTDetailCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 810611641E16B87D00B3D3E4 /* MTDetailCenterView.m */; };
 		81193D5D1E0FA1F900612134 /* DPAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 81193D591E0FA1F900612134 /* DPAPI.m */; };
 		81193D5E1E0FA1F900612134 /* DPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 81193D5C1E0FA1F900612134 /* DPRequest.m */; };
 		81193D611E0FA51900612134 /* MTDealModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81193D601E0FA51900612134 /* MTDealModel.m */; };
@@ -56,6 +57,8 @@
 		8101B9931E141A9A006B787C /* AwesomeMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwesomeMenuItem.m; sourceTree = "<group>"; };
 		810611601E16B41C00B3D3E4 /* MTDetailNavView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDetailNavView.h; sourceTree = "<group>"; };
 		810611611E16B41C00B3D3E4 /* MTDetailNavView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTDetailNavView.m; sourceTree = "<group>"; };
+		810611631E16B87D00B3D3E4 /* MTDetailCenterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDetailCenterView.h; sourceTree = "<group>"; };
+		810611641E16B87D00B3D3E4 /* MTDetailCenterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTDetailCenterView.m; sourceTree = "<group>"; };
 		81193D581E0FA1F900612134 /* DPAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPAPI.h; sourceTree = "<group>"; };
 		81193D591E0FA1F900612134 /* DPAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPAPI.m; sourceTree = "<group>"; };
 		81193D5A1E0FA1F900612134 /* DPConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPConstants.h; sourceTree = "<group>"; };
@@ -368,6 +371,8 @@
 			children = (
 				810611601E16B41C00B3D3E4 /* MTDetailNavView.h */,
 				810611611E16B41C00B3D3E4 /* MTDetailNavView.m */,
+				810611631E16B87D00B3D3E4 /* MTDetailCenterView.h */,
+				810611641E16B87D00B3D3E4 /* MTDetailCenterView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -538,6 +543,7 @@
 				81593CE51E08705700E84987 /* UIImage+MTCategory.m in Sources */,
 				81193D611E0FA51900612134 /* MTDealModel.m in Sources */,
 				8101B9941E141A9A006B787C /* AwesomeMenu.m in Sources */,
+				810611651E16B87D00B3D3E4 /* MTDetailCenterView.m in Sources */,
 				814097BC1E0AA94D000FF54C /* HMConst.m in Sources */,
 				81593CE21E08655700E84987 /* MTHomeNavView.m in Sources */,
 				81B5033B1E098324008B03CF /* MTCitySearchResultViewController.m in Sources */,

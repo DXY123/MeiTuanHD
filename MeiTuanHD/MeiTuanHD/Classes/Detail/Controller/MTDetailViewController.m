@@ -7,12 +7,17 @@
 //
 
 #import "MTDetailViewController.h"
+//自定义导航
 #import "MTDetailNavView.h"
-
+//详情中间的View
+#import "MTDetailCenterView.h"
 
 @interface MTDetailViewController ()
+
 //自定义导航的view
 @property(nonatomic,strong) MTDetailNavView * detailNavView;
+//详情中间的View
+@property(nonatomic,strong) MTDetailCenterView * detailCenterView;
 
 @end
 
@@ -34,10 +39,17 @@
     self.view.backgroundColor = HMColor(222, 222, 222);
     //添加控件
     [self.view addSubview:self.detailNavView];
+    [self.view addSubview:self.detailCenterView];
     
     [self.detailNavView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.equalTo(self.view);
         make.size.equalTo(CGSizeMake(400, 64));
+    }];
+    
+    [self.detailCenterView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(self.detailNavView);
+        make.top.equalTo(self.detailNavView.mas_bottom);
+        make.bottom.equalTo(self.view);
     }];
     
 }
@@ -53,6 +65,13 @@
         }];
     }
     return _detailNavView;
+}
+
+- (MTDetailCenterView *)detailCenterView{
+    if (!_detailCenterView) {
+        _detailCenterView = [MTDetailCenterView new];
+    }
+    return _detailCenterView;
 }
 
 @end
