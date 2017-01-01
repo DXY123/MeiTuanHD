@@ -14,6 +14,7 @@
 		810611681E16BEC600B3D3E4 /* MTDetailBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 810611671E16BEC600B3D3E4 /* MTDetailBottomView.m */; };
 		8108C9501E18D46900136675 /* MTRestrictionsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8108C94F1E18D46900136675 /* MTRestrictionsModel.m */; };
 		8108C9571E18EA6F00136675 /* MTSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8108C9561E18EA6F00136675 /* MTSearchViewController.m */; };
+		8108C95A1E18F70700136675 /* MTBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8108C9591E18F70700136675 /* MTBaseViewController.m */; };
 		81193D5D1E0FA1F900612134 /* DPAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 81193D591E0FA1F900612134 /* DPAPI.m */; };
 		81193D5E1E0FA1F900612134 /* DPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 81193D5C1E0FA1F900612134 /* DPRequest.m */; };
 		81193D611E0FA51900612134 /* MTDealModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81193D601E0FA51900612134 /* MTDealModel.m */; };
@@ -68,6 +69,8 @@
 		8108C94F1E18D46900136675 /* MTRestrictionsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTRestrictionsModel.m; sourceTree = "<group>"; };
 		8108C9551E18EA6F00136675 /* MTSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTSearchViewController.h; sourceTree = "<group>"; };
 		8108C9561E18EA6F00136675 /* MTSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTSearchViewController.m; sourceTree = "<group>"; };
+		8108C9581E18F70700136675 /* MTBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTBaseViewController.h; sourceTree = "<group>"; };
+		8108C9591E18F70700136675 /* MTBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBaseViewController.m; sourceTree = "<group>"; };
 		81193D581E0FA1F900612134 /* DPAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPAPI.h; sourceTree = "<group>"; };
 		81193D591E0FA1F900612134 /* DPAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPAPI.m; sourceTree = "<group>"; };
 		81193D5A1E0FA1F900612134 /* DPConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPConstants.h; sourceTree = "<group>"; };
@@ -340,6 +343,8 @@
 			children = (
 				81B8480A1E085D4C00F9CA40 /* MTNavigationController.h */,
 				81B8480B1E085D4C00F9CA40 /* MTNavigationController.m */,
+				8108C9581E18F70700136675 /* MTBaseViewController.h */,
+				8108C9591E18F70700136675 /* MTBaseViewController.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -590,6 +595,7 @@
 				81FCDD551E0D131400DBED73 /* MTDealCell.m in Sources */,
 				8108C9501E18D46900136675 /* MTRestrictionsModel.m in Sources */,
 				81593CE51E08705700E84987 /* UIImage+MTCategory.m in Sources */,
+				8108C95A1E18F70700136675 /* MTBaseViewController.m in Sources */,
 				81193D611E0FA51900612134 /* MTDealModel.m in Sources */,
 				8101B9941E141A9A006B787C /* AwesomeMenu.m in Sources */,
 				810611651E16B87D00B3D3E4 /* MTDetailCenterView.m in Sources */,
