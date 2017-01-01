@@ -27,6 +27,11 @@
 
 @implementation MTDetailViewController
 
+#pragma mark - 如果进入该控制器,必须是横屏
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskLandscape;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpUI];

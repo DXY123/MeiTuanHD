@@ -31,6 +31,10 @@
 #import "AwesomeMenu.h"
 //详情控制器
 #import "MTDetailViewController.h"
+//搜索控制器
+#import "MTSearchViewController.h"
+//导航控制器
+#import "MTNavigationController.h"
 
 @interface MTHomeViewController ()<DPRequestDelegate,AwesomeMenuDelegate>
 
@@ -528,6 +532,12 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)searchClick{
     NSLog(@"搜索点击");
+    MTSearchViewController * searchVc = [MTSearchViewController new];
+    //导航
+    MTNavigationController * searchNav = [[MTNavigationController alloc]initWithRootViewController:searchVc];
+    
+    [self presentViewController:searchNav animated:true completion:nil];
+    
 }
 
 #pragma mark - 设置collectionView相关
