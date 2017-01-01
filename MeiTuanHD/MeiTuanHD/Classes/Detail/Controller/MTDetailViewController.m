@@ -12,7 +12,9 @@
 //详情中间的View
 #import "MTDetailCenterView.h"
 
-@interface MTDetailViewController ()
+#import "MTDealModel.h"
+
+@interface MTDetailViewController ()<DPRequestDelegate>
 
 //自定义导航的view
 @property(nonatomic,strong) MTDetailNavView * detailNavView;
@@ -26,7 +28,39 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpUI];
+    [self loadData];
 }
+
+#pragma mark - 加载数据
+- (void)loadData{
+    //实例化
+    DPAPI * api = [DPAPI new];
+    //请求参数
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    
+    params[@"deal_id"] = self.dealModel.deal_id;
+    
+    //发送请求
+    [api requestWithURL:@"v1/deal/get_single_deal" params:params delegate:self];
+    
+}
+
+#pragma mark - DPRequestDelegate
+//成功
+- (void)request:(DPRequest *)request didFinishLoadingWithResult:(id)result{
+    NSLog(@"请求成功:%@",result);
+    self.dealModel = [MTDealModel yy_modelWithJSON:[result[@"deals"] firstObject]];
+    
+    //赋值
+    self.detailCenterView.dealModel = self.dealModel;
+    
+}
+
+//请求失败
+-(void)request:(DPRequest *)request didFailWithError:(NSError *)error{
+    NSLog(@"请求失败:%@",error);
+}
+
 
 #pragma mark - 监听方法
 //自定义navView的返回按钮点击事件

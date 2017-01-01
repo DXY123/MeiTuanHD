@@ -621,6 +621,9 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     //实例化
     MTDetailViewController * detailVc = [MTDetailViewController new];
+    
+    detailVc.dealModel = self.dataArray[indexPath.item];
+    
     //模态弹出
     [self presentViewController:detailVc animated:true completion:nil];
 }

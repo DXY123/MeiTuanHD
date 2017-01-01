@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class MTDealModel;
+
 @interface MTDetailBottomView : UIView
+
+@property(nonatomic,strong) MTDealModel * dealModel;
 
 @end

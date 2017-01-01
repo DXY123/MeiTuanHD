@@ -7,6 +7,9 @@
 //
 
 #import "MTDetailBottomView.h"
+#import "MTDealModel.h"
+#import "MTRestrictionsModel.h"
+
 
 @interface MTDetailBottomView ()
 
@@ -30,6 +33,15 @@
         [self setUpUI];
     }
     return self;
+}
+
+//赋值
+-(void)setDealModel:(MTDealModel *)dealModel{
+    _dealModel = dealModel;
+    //赋值
+    self.btnA.selected = dealModel.restrictions.is_reservation_required;
+    self.btnC.selected = dealModel.restrictions.is_refundable;
+    [self.btnD setTitle:[NSString stringWithFormat:@"已售 %zd",dealModel.purchase_count] forState:UIControlStateNormal];
 }
 
 

@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class MTRestrictionsModel;
+
 @interface MTDealModel : NSObject
 
 /** 团购单ID */
@@ -53,6 +55,9 @@
 
 /** 团购单的截止购买日期*/
 @property (copy, nonatomic) NSString *purchase_deadline;
+
+/** 随时退款和过期退款 */
+@property(nonatomic,strong) MTRestrictionsModel * restrictions;
 
 
 @end

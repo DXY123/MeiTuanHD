@@ -10,6 +10,7 @@
 #import "MTCenterLineLabel.h"
 //自定义详情底部的View 为了更好设置约束,所以写在CenterView中
 #import "MTDetailBottomView.h"
+#import "MTDealModel.h"
 
 @interface MTDetailCenterView ()
 
@@ -44,6 +45,24 @@
         [self setUpUI];
     }
     return self;
+}
+
+#pragma mark - 赋值
+-(void)setDealModel:(MTDealModel *)dealModel{
+    _dealModel = dealModel;
+    //赋值
+    //图片
+    [self.imgLogo sd_setImageWithURL:[NSURL URLWithString:dealModel.image_url] placeholderImage:[UIImage imageNamed:@"placeholder_deal"]];
+    //标题
+    self.labTitle.text = dealModel.title;
+    //描述
+    self.labDesc.text = dealModel.desc;
+    //现价
+    self.labCurrent.text = dealModel.currentPriceStr;
+    //原价
+    self.labList.text = dealModel.listPriceStr;
+    //底部视图赋值
+    self.detailBottomView.dealModel = dealModel;
 }
 
 #pragma mark - 设置视图

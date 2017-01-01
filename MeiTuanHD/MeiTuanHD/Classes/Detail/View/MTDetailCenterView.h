@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class MTDealModel;
 
 @interface MTDetailCenterView : UIView
+
+@property(nonatomic,strong) MTDealModel * dealModel;
 
 @end

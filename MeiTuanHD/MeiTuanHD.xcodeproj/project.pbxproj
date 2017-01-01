@@ -12,6 +12,7 @@
 		810611621E16B41C00B3D3E4 /* MTDetailNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = 810611611E16B41C00B3D3E4 /* MTDetailNavView.m */; };
 		810611651E16B87D00B3D3E4 /* MTDetailCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 810611641E16B87D00B3D3E4 /* MTDetailCenterView.m */; };
 		810611681E16BEC600B3D3E4 /* MTDetailBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 810611671E16BEC600B3D3E4 /* MTDetailBottomView.m */; };
+		8108C9501E18D46900136675 /* MTRestrictionsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8108C94F1E18D46900136675 /* MTRestrictionsModel.m */; };
 		81193D5D1E0FA1F900612134 /* DPAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 81193D591E0FA1F900612134 /* DPAPI.m */; };
 		81193D5E1E0FA1F900612134 /* DPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 81193D5C1E0FA1F900612134 /* DPRequest.m */; };
 		81193D611E0FA51900612134 /* MTDealModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81193D601E0FA51900612134 /* MTDealModel.m */; };
@@ -62,6 +63,8 @@
 		810611641E16B87D00B3D3E4 /* MTDetailCenterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTDetailCenterView.m; sourceTree = "<group>"; };
 		810611661E16BEC600B3D3E4 /* MTDetailBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDetailBottomView.h; sourceTree = "<group>"; };
 		810611671E16BEC600B3D3E4 /* MTDetailBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTDetailBottomView.m; sourceTree = "<group>"; };
+		8108C94E1E18D46900136675 /* MTRestrictionsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTRestrictionsModel.h; sourceTree = "<group>"; };
+		8108C94F1E18D46900136675 /* MTRestrictionsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTRestrictionsModel.m; sourceTree = "<group>"; };
 		81193D581E0FA1F900612134 /* DPAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPAPI.h; sourceTree = "<group>"; };
 		81193D591E0FA1F900612134 /* DPAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPAPI.m; sourceTree = "<group>"; };
 		81193D5A1E0FA1F900612134 /* DPConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPConstants.h; sourceTree = "<group>"; };
@@ -365,6 +368,8 @@
 		81EF3E1F1E153C3200D53296 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8108C94E1E18D46900136675 /* MTRestrictionsModel.h */,
+				8108C94F1E18D46900136675 /* MTRestrictionsModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -546,6 +551,7 @@
 				81FE96411E094D2F0002258A /* MTCityGroupModel.m in Sources */,
 				81FE96381E08F1490002258A /* MTCategoryModel.m in Sources */,
 				81FCDD551E0D131400DBED73 /* MTDealCell.m in Sources */,
+				8108C9501E18D46900136675 /* MTRestrictionsModel.m in Sources */,
 				81593CE51E08705700E84987 /* UIImage+MTCategory.m in Sources */,
 				81193D611E0FA51900612134 /* MTDealModel.m in Sources */,
 				8101B9941E141A9A006B787C /* AwesomeMenu.m in Sources */,
