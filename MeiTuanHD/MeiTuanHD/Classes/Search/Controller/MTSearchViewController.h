@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MTBaseViewController.h"
 
-@interface MTSearchViewController : UIViewController
+@interface MTSearchViewController : MTBaseViewController
+
+//选择的城市
+@property(nonatomic,copy) NSString * selectCityName;
+
 
 @end

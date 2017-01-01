@@ -383,6 +383,9 @@
     //导航
     MTNavigationController * searchNav = [[MTNavigationController alloc]initWithRootViewController:searchVc];
     
+    //赋值
+    searchVc.selectCityName = self.selectCityName;
+    
     [self presentViewController:searchNav animated:true completion:nil];
     
 }

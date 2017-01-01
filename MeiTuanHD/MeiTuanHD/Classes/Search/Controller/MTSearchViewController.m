@@ -8,7 +8,7 @@
 
 #import "MTSearchViewController.h"
 
-@interface MTSearchViewController ()
+@interface MTSearchViewController ()<UISearchBarDelegate>
 
 //searchBar
 @property(nonatomic,strong) UISearchBar * searchBar;
@@ -42,11 +42,31 @@
 }
 
 
+
+#pragma mark - UISearchBarDelegate
+//
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    // 1 关闭键盘 取消第一响应
+    [self.searchBar resignFirstResponder];
+    // 2 开启刷新
+    [self.collectionView.mj_header beginRefreshing];
+    
+}
+
+- (void)setParams:(NSMutableDictionary *)params{
+    //城市参数
+    params[@"city"] = self.selectCityName;
+    //关键字
+    params[@"keyword"] = self.searchBar.text;
+}
+
+
 #pragma mark - 懒加载
 - (UISearchBar *)searchBar{
     if (!_searchBar) {
         _searchBar = [UISearchBar new];
         _searchBar.placeholder = @"请输入搜索内容";
+        _searchBar.delegate = self;
     }
     return _searchBar;
 }
