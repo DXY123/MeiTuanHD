@@ -72,7 +72,7 @@
 
 #pragma mark - 设置视图
 - (void)setUpUI{
-    self.view.backgroundColor = HMColor(222, 222, 222);
+    self.view.backgroundColor = HMColor(240, 240, 240);
     //添加控件
     [self.view addSubview:self.detailNavView];
     [self.view addSubview:self.detailCenterView];
@@ -100,6 +100,7 @@
 #pragma mark - UIWebViewDelegate
 //想要拿到更多详情页面的网址,需要使用代理
 //http://m.dianping.com/tuan/deal/moreinfo/15982763
+//http://m.dianping.com/tuan/deal/moreinfo/20514039
 //将要加载request
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
 //    NSLog(@"urlString%@",request.URL.absoluteString);
@@ -108,6 +109,41 @@
     return true;
 }
 
+
+-(void)webViewDidFinishLoad:(UIWebView *)webView{
+    //js 注入语句
+    NSMutableString * js = [[NSMutableString alloc]init];
+    //删除头部 图文详情描述
+    [js appendString:@"var header = document.getElementsByTagName('header')[0];header.parentElement.removeChild(header);"];
+    
+     //删除顶部"立即购买"
+    [js appendString:@"var box = document.getElementsByClassName('cost-box')[0];box.parentElement.removeChild(box);"];
+    
+    //删除底部大众点评相关信息
+    [js appendString:@"var footer = document.getElementsByClassName('footer')[0];footer.parentElement.removeChild(footer);"];
+    
+    //删除底部 价格和"立即购买"
+    [js appendString:@"var buy = document.getElementsByClassName('buy-now')[0];buy.parentElement.removeChild(buy);"];
+    
+    [webView stringByEvaluatingJavaScriptFromString:js];
+    
+}
+
+/*
+ 
+ //删除头部标题栏"图文详情"
+ var header = document.getElementsByTagName('header')[0];header.parentElement.removeChild(header);
+ 
+ //删除顶部"立即购买"
+ var box = document.getElementsByClassName('cost-box')[0];box.parentElement.removeChild(box);
+ 
+ //删除底部大众点评相关信息
+ var footer = document.getElementsByClassName('footer')[0];footer.parentElement.removeChild(footer);
+ 
+ //删除底部 价格和"立即购买"
+ var buy = document.getElementsByClassName('buy-now')[0];buy.parentElement.removeChild(buy);
+ 
+ */
 
 
 #pragma mark - 懒加载
@@ -133,6 +169,9 @@
     if (!_webView) {
         _webView = [UIWebView new];
         _webView.delegate = self;
+        //增加边距
+        _webView.scrollView.contentInset = UIEdgeInsetsMake(20, 0, 20, 0);
+        _webView.backgroundColor = HMColor(240, 240, 240);
         
         //deal_id:8-21551250
         //获取range
