@@ -14,12 +14,14 @@
 
 #import "MTDealModel.h"
 
-@interface MTDetailViewController ()<DPRequestDelegate>
+@interface MTDetailViewController ()<DPRequestDelegate,UIWebViewDelegate>
 
 //自定义导航的view
 @property(nonatomic,strong) MTDetailNavView * detailNavView;
 //详情中间的View
 @property(nonatomic,strong) MTDetailCenterView * detailCenterView;
+//webView
+@property(nonatomic,strong) UIWebView * webView;
 
 @end
 
@@ -74,6 +76,7 @@
     //添加控件
     [self.view addSubview:self.detailNavView];
     [self.view addSubview:self.detailCenterView];
+    [self.view addSubview:self.webView];
     
     [self.detailNavView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.equalTo(self.view);
@@ -86,7 +89,25 @@
         make.bottom.equalTo(self.view);
     }];
     
+    [self.webView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.right.bottom.equalTo(self.view);
+        make.left.equalTo(self.detailNavView.mas_right).offset(20);
+    }];
+    
 }
+
+
+#pragma mark - UIWebViewDelegate
+//想要拿到更多详情页面的网址,需要使用代理
+//http://m.dianping.com/tuan/deal/moreinfo/15982763
+//将要加载request
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
+//    NSLog(@"urlString%@",request.URL.absoluteString);
+    
+    
+    return true;
+}
+
 
 
 #pragma mark - 懒加载
@@ -106,6 +127,27 @@
         _detailCenterView = [MTDetailCenterView new];
     }
     return _detailCenterView;
+}
+
+-(UIWebView *)webView{
+    if (!_webView) {
+        _webView = [UIWebView new];
+        _webView.delegate = self;
+        
+        //deal_id:8-21551250
+        //获取range
+        NSRange range = [self.dealModel.deal_id rangeOfString:@"-"];
+        //dealID
+        NSString * dealId = [self.dealModel.deal_id substringFromIndex:range.location + range.length];
+        //更多图文详情的网址
+        NSString * dealUrlString = [NSString stringWithFormat:@"http://m.dianping.com/tuan/deal/moreinfo/%@",dealId];
+        
+        
+        
+        //加载页面
+        [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:dealUrlString]]];
+    }
+    return _webView;
 }
 
 @end
