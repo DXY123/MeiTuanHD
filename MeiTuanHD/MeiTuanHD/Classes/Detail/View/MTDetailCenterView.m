@@ -11,6 +11,7 @@
 //自定义详情底部的View 为了更好设置约束,所以写在CenterView中
 #import "MTDetailBottomView.h"
 #import "MTDealModel.h"
+#import "MTDealTools.h"
 
 @interface MTDetailCenterView ()
 
@@ -64,6 +65,22 @@
     //底部视图赋值
     self.detailBottomView.dealModel = dealModel;
 }
+
+#pragma mark - 监听方法
+- (void)btnCollectClick:(UIButton *)sender{
+    //改变状态
+    sender.selected = !sender.selected;
+    
+    if (sender.selected) {
+        //保存
+        [[MTDealTools shared] insertDealModel:self.dealModel];
+    }else{
+        //删除
+        [[MTDealTools shared] deleteDealModel:self.dealModel];
+    }
+    
+}
+
 
 #pragma mark - 设置视图
 - (void)setUpUI{
@@ -210,6 +227,10 @@
 - (UIButton *)btnCollect{
     if (!_btnCollect) {
         _btnCollect = [UIButton buttonWithType:UIButtonTypeCustom];
+        
+        //点击方法
+        [_btnCollect addTarget:self action:@selector(btnCollectClick:) forControlEvents:UIControlEventTouchUpInside];
+        
         [_btnCollect setImage:[UIImage imageNamed:@"icon_collect"] forState:UIControlStateNormal];
         [_btnCollect setImage:[UIImage imageNamed:@"icon_collect_highlighted"] forState:UIControlStateSelected];
     }
