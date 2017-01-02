@@ -182,4 +182,20 @@
     
 }
 
+//获取美团团购总条数
+- (void)getCollectListTotalCountBlock:(void (^)(NSInteger totalCount))block{
+    //准备sql
+    NSString * sql = @"SELECT COUNT(*) FROM t_collect;";
+    //执行sql
+    [self.queue inDatabase:^(FMDatabase *db) {
+        //查询数据库的结果集intForQuery 获取结果集合个数
+        NSInteger totalCount = [db intForQuery:sql];
+        
+        //执行block
+        block(totalCount);
+        
+    }];
+}
+
+
 @end

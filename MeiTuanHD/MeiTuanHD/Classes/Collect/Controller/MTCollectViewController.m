@@ -180,6 +180,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 #pragma mark - 加载数据
 - (void)loadDealData{
+    //请求数据
     [[MTDealTools shared] getCollectListWithPage:self.currentPage block:^(NSArray *modelArr) {
         [self.dataArray addObjectsFromArray:modelArr];
         
@@ -187,6 +188,16 @@ static NSString * const reuseIdentifier = @"Cell";
         //结束mj_footer动画
         [self.collectionView.mj_footer endRefreshing];
         
+        //如果没有数据 显示imgNoData
+        self.imgNoData.hidden = !(self.dataArray.count == 0);
+        
+    }];
+    
+    //计算团购个数
+    [[MTDealTools shared] getCollectListTotalCountBlock:^(NSInteger totalCount) {
+        if (self.dataArray.count == totalCount) {
+            [self.collectionView.mj_footer endRefreshingWithNoMoreData];
+        }
     }];
 }
 

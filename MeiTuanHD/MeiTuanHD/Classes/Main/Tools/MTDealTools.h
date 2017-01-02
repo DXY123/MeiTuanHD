@@ -37,5 +37,7 @@
 //获取美团团购列表数据
 - (void)getCollectListWithPage:(NSInteger)page block:(void (^)(NSArray * modelArr))block;
 
+//获取美团团购总条数
+- (void)getCollectListTotalCountBlock:(void (^)(NSInteger totalCount))block;
 
 @end
