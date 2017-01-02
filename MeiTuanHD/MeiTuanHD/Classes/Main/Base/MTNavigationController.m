@@ -31,6 +31,15 @@
     
     //设置背景图片
     [navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    
+    //设置字体颜色
+    UIBarButtonItem * item = [UIBarButtonItem appearance];
+    //设置正常的字体颜色
+    [item setTitleTextAttributes:@{NSForegroundColorAttributeName: HMColor(21, 188, 173)} forState:UIControlStateNormal];
+    
+    //不能点击的颜色
+    [item setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor darkGrayColor]} forState:UIControlStateDisabled];
+    
 }
 
 - (void)viewDidLoad {

@@ -29,6 +29,8 @@
 #import "MTSearchViewController.h"
 //导航控制器
 #import "MTNavigationController.h"
+//收藏控制器
+#import "MTCollectViewController.h"
 
 @interface MTHomeViewController ()<AwesomeMenuDelegate>
 
@@ -312,22 +314,25 @@
     switch (idx) {
         case 0:
         {
-            NSLog(@"我的")
+            NSLog(@"我的");
         }
             break;
         case 1:
         {
-            NSLog(@"收藏")
+            NSLog(@"收藏");
+            MTCollectViewController * collectVc = [MTCollectViewController new];
+            MTNavigationController * collectNav = [[MTNavigationController alloc]initWithRootViewController:collectVc];
+            [self presentViewController:collectNav animated:true completion:nil];
         }
             break;
         case 2:
         {
-            NSLog(@"预览")
+            NSLog(@"预览");
         }
             break;
         case 3:
         {
-            NSLog(@"更多")
+            NSLog(@"更多");
         }
             break;
             

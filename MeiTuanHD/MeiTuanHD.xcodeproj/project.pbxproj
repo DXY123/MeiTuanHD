@@ -10,6 +10,7 @@
 		8101B9941E141A9A006B787C /* AwesomeMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 8101B9911E141A9A006B787C /* AwesomeMenu.m */; };
 		8101B9951E141A9A006B787C /* AwesomeMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8101B9931E141A9A006B787C /* AwesomeMenuItem.m */; };
 		810213B51E1A35C600AAE079 /* db.sql in Resources */ = {isa = PBXBuildFile; fileRef = 810213B41E1A35C600AAE079 /* db.sql */; };
+		810213BC1E1A4BEE00AAE079 /* MTCollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 810213BB1E1A4BEE00AAE079 /* MTCollectViewController.m */; };
 		810611621E16B41C00B3D3E4 /* MTDetailNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = 810611611E16B41C00B3D3E4 /* MTDetailNavView.m */; };
 		810611651E16B87D00B3D3E4 /* MTDetailCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 810611641E16B87D00B3D3E4 /* MTDetailCenterView.m */; };
 		810611681E16BEC600B3D3E4 /* MTDetailBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 810611671E16BEC600B3D3E4 /* MTDetailBottomView.m */; };
@@ -62,6 +63,8 @@
 		8101B9921E141A9A006B787C /* AwesomeMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwesomeMenuItem.h; sourceTree = "<group>"; };
 		8101B9931E141A9A006B787C /* AwesomeMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwesomeMenuItem.m; sourceTree = "<group>"; };
 		810213B41E1A35C600AAE079 /* db.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = db.sql; sourceTree = "<group>"; };
+		810213BA1E1A4BEE00AAE079 /* MTCollectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTCollectViewController.h; sourceTree = "<group>"; };
+		810213BB1E1A4BEE00AAE079 /* MTCollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTCollectViewController.m; sourceTree = "<group>"; };
 		810611601E16B41C00B3D3E4 /* MTDetailNavView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDetailNavView.h; sourceTree = "<group>"; };
 		810611611E16B41C00B3D3E4 /* MTDetailNavView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTDetailNavView.m; sourceTree = "<group>"; };
 		810611631E16B87D00B3D3E4 /* MTDetailCenterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDetailCenterView.h; sourceTree = "<group>"; };
@@ -167,6 +170,39 @@
 			path = AwesomeMenu;
 			sourceTree = "<group>";
 		};
+		810213B61E1A4BC200AAE079 /* Collect */ = {
+			isa = PBXGroup;
+			children = (
+				810213B71E1A4BC200AAE079 /* Controller */,
+				810213B81E1A4BC200AAE079 /* Model */,
+				810213B91E1A4BC200AAE079 /* View */,
+			);
+			path = Collect;
+			sourceTree = "<group>";
+		};
+		810213B71E1A4BC200AAE079 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				810213BA1E1A4BEE00AAE079 /* MTCollectViewController.h */,
+				810213BB1E1A4BEE00AAE079 /* MTCollectViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		810213B81E1A4BC200AAE079 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		810213B91E1A4BC200AAE079 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		8108C9511E18EA5700136675 /* Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -257,6 +293,7 @@
 		814AB5F01E051EFD00BF863F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				810213B61E1A4BC200AAE079 /* Collect */,
 				8108C9511E18EA5700136675 /* Search */,
 				81EF3E1D1E153C3200D53296 /* Detail */,
 				814AB5F51E051EFD00BF863F /* Main */,
@@ -629,6 +666,7 @@
 				814AB5DB1E051CCC00BF863F /* main.m in Sources */,
 				81FE962C1E08DFC70002258A /* MTDropDownView.m in Sources */,
 				81B848081E08572100F9CA40 /* AppDelegate.m in Sources */,
+				810213BC1E1A4BEE00AAE079 /* MTCollectViewController.m in Sources */,
 				814097C81E0BFE0E000FF54C /* MTSortViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
