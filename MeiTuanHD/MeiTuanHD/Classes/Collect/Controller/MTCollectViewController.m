@@ -13,6 +13,8 @@
 #import "MTDealModel.h"
 //详情控制器
 #import "MTDetailViewController.h"
+//数据库工具类
+#import "MTDealTools.h"
 
 
 @interface MTCollectViewController ()
@@ -102,6 +104,7 @@ static NSString * const reuseIdentifier = @"Cell";
     
     [self addRefresh];
     
+    [self loadDealData];
 }
 
 
@@ -157,11 +160,11 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark - 设置下拉刷新和上拉加载更多
 - (void)addRefresh{
     //下拉刷新
-    self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        //page = 1
-        self.currentPage = 1;
-        [self loadDealData];
-    }];
+//    self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+//        //page = 1
+//        self.currentPage = 1;
+//        [self loadDealData];
+//    }];
     
     
     //上拉加载更多
@@ -177,7 +180,14 @@ static NSString * const reuseIdentifier = @"Cell";
 
 #pragma mark - 加载数据
 - (void)loadDealData{
-    
+    [[MTDealTools shared] getCollectListWithPage:self.currentPage block:^(NSArray *modelArr) {
+        [self.dataArray addObjectsFromArray:modelArr];
+        
+        [self.collectionView reloadData];
+        //结束mj_footer动画
+        [self.collectionView.mj_footer endRefreshing];
+        
+    }];
 }
 
 #pragma mark - 设置collectionView相关
@@ -188,14 +198,14 @@ static NSString * const reuseIdentifier = @"Cell";
 
 #pragma mark - UICollectionView DataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return self.dataArray.count + 20;
+    return self.dataArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     MTDealCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     cell.backgroundColor = [UIColor brownColor];
     //赋值
-//    cell.dealModel = self.dataArray[indexPath.item];
+    cell.dealModel = self.dataArray[indexPath.item];
     return cell;
 }
 

@@ -146,8 +146,40 @@
         
     }];
     
-    
 }
 
+
+//获取美团团购列表数据
+- (void)getCollectListWithPage:(NSInteger)page block:(void (^)(NSArray * modelArr))block{
+    //默认返回的条数
+    NSInteger length = 20;
+    //位置
+    NSInteger location = (page - 1) * length;
+    //准备sql
+    // LIMIT ?,? = location,length
+    NSString * sql = @"SELECT * FROM t_collect ORDER BY id DESC LIMIT ?,?;";
+    //执行sql
+    [self.queue inDatabase:^(FMDatabase *db) {
+        //创建一个临时数组
+        NSMutableArray * tempArr = [NSMutableArray array];
+        
+        FMResultSet * set = [db executeQuery:sql withArgumentsInArray:@[@(location),@(length)]];
+        
+        while ([set next]) {
+            //取数据
+            //二进制数据的模型
+            NSData * data = [set dataForColumn:@"deal_model"];
+            //二进制数据解档
+            MTDealModel * dealModel = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+            
+            [tempArr addObject:dealModel];
+            
+        }
+        //执行block
+        block([tempArr copy]);
+        
+    }];
+    
+}
 
 @end
