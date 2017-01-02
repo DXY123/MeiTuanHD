@@ -120,11 +120,32 @@ static NSString * const reuseIdentifier = @"Cell";
 //全选
 - (void)selectAllClick{
     NSLog(@"全选");
+    
+    for (MTDealModel * dealModel in self.dataArray) {
+        //都要打上对勾
+        dealModel.isChoose = true;
+    }
+    
+    //改变删除按钮状态
+    self.deleteItem.enabled = true;
+    
+    [self.collectionView reloadData];
+    
 }
 
 //全不选
 - (void)unselectAllClick{
     NSLog(@"全不选");
+    
+    for (MTDealModel * dealModel in self.dataArray) {
+        //都不打对勾
+        dealModel.isChoose = false;
+    }
+    
+    //改变删除按钮状态
+    self.deleteItem.enabled = false;
+    
+    [self.collectionView reloadData];
 }
 
 //删除
