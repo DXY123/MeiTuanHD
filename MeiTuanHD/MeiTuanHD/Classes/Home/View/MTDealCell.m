@@ -29,6 +29,10 @@
 @property(nonatomic,strong) UILabel * labNumber;
 //新单
 @property(nonatomic,strong) UIImageView * imgDealNew;
+//遮盖按钮
+@property(nonatomic,strong) UIButton * btnCover;
+//对勾图片
+@property(nonatomic,strong) UIImageView * imgChoosed;
 
 @end
 
@@ -67,6 +71,11 @@
     
     self.imgDealNew.hidden = !dealModel.isDealNew;
     
+    //判断是否是收藏界面
+    self.btnCover.hidden = !dealModel.editting;
+    
+    self.imgChoosed.hidden = !dealModel.isChoose;
+    
 }
 
 //不能在这处理价格,否则cell重用机制会在每次加载cell的时候都重新调用这个方法计算
@@ -86,6 +95,8 @@
     [self.contentView addSubview:self.labList];
     [self.contentView addSubview:self.labNumber];
     [self.contentView addSubview:self.imgDealNew];
+    [self.contentView addSubview:self.btnCover];
+    [self.contentView addSubview:self.imgChoosed];
     
     
     //添加约束
@@ -127,6 +138,14 @@
     
     [self.imgDealNew mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.right.equalTo(self.contentView);
+    }];
+    
+    [self.btnCover mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.contentView);
+    }];
+    
+    [self.imgChoosed mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.bottom.equalTo(self.contentView);
     }];
     
 }
@@ -208,6 +227,24 @@
         _imgDealNew = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"ic_deal_new"]];
     }
     return _imgDealNew;
+}
+
+//遮盖按钮
+- (UIButton *)btnCover{
+    if (!_btnCover) {
+        _btnCover = [UIButton buttonWithType:UIButtonTypeCustom];
+        _btnCover.backgroundColor = [UIColor whiteColor];
+        _btnCover.alpha = 0.5;
+    }
+    return _btnCover;
+}
+
+//对勾图片
+- (UIImageView *)imgChoosed{
+    if (!_imgChoosed) {
+        _imgChoosed = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ic_choosed"]];
+    }
+    return _imgChoosed;
 }
 
 @end

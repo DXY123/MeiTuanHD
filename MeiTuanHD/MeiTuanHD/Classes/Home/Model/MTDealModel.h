@@ -60,4 +60,10 @@
 @property(nonatomic,strong) MTRestrictionsModel * restrictions;
 
 
+/** 判断是否是编辑状态 是首页 还是收藏界面  不赋值默认是false*/
+@property(nonatomic,assign)BOOL editting;
+
+/** 判断是否选中  不赋值默认是false*/
+@property(nonatomic,assign)BOOL isChoose;
+
 @end

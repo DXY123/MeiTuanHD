@@ -75,11 +75,16 @@ static NSString * const reuseIdentifier = @"Cell";
 
 
 - (void)viewDidLoad {
-    self.collectionView.backgroundColor = HMColor(222, 222, 222);
     [super viewDidLoad];
     
+    // 手动调用屏幕旋转方法
+    [self viewWillTransitionToSize:[UIScreen mainScreen].bounds.size withTransitionCoordinator:self.transitionCoordinator];
+    
+    self.collectionView.backgroundColor = HMColor(222, 222, 222);
     
     [self.view addSubview:self.imgNoData];
+    
+    
     
     //添加约束
     [self.imgNoData mas_makeConstraints:^(MASConstraintMaker *make) {
