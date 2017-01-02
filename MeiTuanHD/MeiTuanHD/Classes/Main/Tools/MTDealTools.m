@@ -86,6 +86,7 @@
     [self.queue inDatabase:^(FMDatabase *db) {
         if ([db executeUpdate:sql withArgumentsInArray:@[data,dealModel.deal_id]]) {
             NSLog(@"收藏成功");
+            [SVProgressHUD showSuccessWithStatus:@"收藏成功"];
         }else{
             NSLog(@"收藏失败");
         }
@@ -115,10 +116,36 @@
     [self.queue inDatabase:^(FMDatabase *db) {
         if ([db executeUpdate:sql withArgumentsInArray:@[dealModel.deal_id]]) {
             NSLog(@"取消收藏成功");
+            [SVProgressHUD showSuccessWithStatus:@"取消收藏成功"];
         }else{
             NSLog(@"取消收藏失败");
         }
     }];
+    
+}
+
+
+//判断是否收藏了某个团购
+- (void)isCollectDealModel:(MTDealModel *)dealModel block:(void (^)(BOOL isCollect))block{
+    //准备sql
+    NSString * sql = @"SELECT * FROM t_collect WHERE deal_id = ?;";
+    
+    //执行sql
+    [self.queue inDatabase:^(FMDatabase *db) {
+        FMResultSet * set = [db executeQuery:sql withArgumentsInArray:@[dealModel.deal_id]];
+        
+        //执行next
+        [set next];
+        
+        //得到列数,如果查询到了结果,就是3列(id,deal_id,deal_model三个字段),如果没查询到就是0列
+        NSInteger col = [set columnCount];
+        
+        //执行
+        block(col > 0);
+        
+        
+    }];
+    
     
 }
 

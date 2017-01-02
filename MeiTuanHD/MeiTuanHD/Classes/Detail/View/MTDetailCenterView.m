@@ -64,6 +64,10 @@
     self.labList.text = dealModel.listPriceStr;
     //底部视图赋值
     self.detailBottomView.dealModel = dealModel;
+    //设置收藏按钮的状态
+    [[MTDealTools shared] isCollectDealModel:dealModel block:^(BOOL isCollect) {
+        self.btnCollect.selected = isCollect;
+    }];
 }
 
 #pragma mark - 监听方法

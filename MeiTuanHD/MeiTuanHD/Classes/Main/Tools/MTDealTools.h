@@ -22,4 +22,7 @@
 //取消收藏
 - (void)deleteDealModel:(MTDealModel *)dealModel;
 
+//判断是否收藏了某个团购
+- (void)isCollectDealModel:(MTDealModel *)dealModel block:(void (^)(BOOL isCollect))block;
+
 @end
