@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "MTHomeViewController.h"
 #import "MTNavigationController.h"
+#import "MTDealTools.h"
 
 @interface AppDelegate ()
 
@@ -18,6 +19,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [MTDealTools shared];
+    
     [self setUpSVProgressHud];
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];

@@ -9,12 +9,14 @@
 /* Begin PBXBuildFile section */
 		8101B9941E141A9A006B787C /* AwesomeMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 8101B9911E141A9A006B787C /* AwesomeMenu.m */; };
 		8101B9951E141A9A006B787C /* AwesomeMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8101B9931E141A9A006B787C /* AwesomeMenuItem.m */; };
+		810213B51E1A35C600AAE079 /* db.sql in Resources */ = {isa = PBXBuildFile; fileRef = 810213B41E1A35C600AAE079 /* db.sql */; };
 		810611621E16B41C00B3D3E4 /* MTDetailNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = 810611611E16B41C00B3D3E4 /* MTDetailNavView.m */; };
 		810611651E16B87D00B3D3E4 /* MTDetailCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 810611641E16B87D00B3D3E4 /* MTDetailCenterView.m */; };
 		810611681E16BEC600B3D3E4 /* MTDetailBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 810611671E16BEC600B3D3E4 /* MTDetailBottomView.m */; };
 		8108C9501E18D46900136675 /* MTRestrictionsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8108C94F1E18D46900136675 /* MTRestrictionsModel.m */; };
 		8108C9571E18EA6F00136675 /* MTSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8108C9561E18EA6F00136675 /* MTSearchViewController.m */; };
 		8108C95A1E18F70700136675 /* MTBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8108C9591E18F70700136675 /* MTBaseViewController.m */; };
+		8108C95D1E1920DE00136675 /* MTDealTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 8108C95C1E1920DE00136675 /* MTDealTools.m */; };
 		81193D5D1E0FA1F900612134 /* DPAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 81193D591E0FA1F900612134 /* DPAPI.m */; };
 		81193D5E1E0FA1F900612134 /* DPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 81193D5C1E0FA1F900612134 /* DPRequest.m */; };
 		81193D611E0FA51900612134 /* MTDealModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 81193D601E0FA51900612134 /* MTDealModel.m */; };
@@ -59,6 +61,7 @@
 		8101B9911E141A9A006B787C /* AwesomeMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwesomeMenu.m; sourceTree = "<group>"; };
 		8101B9921E141A9A006B787C /* AwesomeMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwesomeMenuItem.h; sourceTree = "<group>"; };
 		8101B9931E141A9A006B787C /* AwesomeMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwesomeMenuItem.m; sourceTree = "<group>"; };
+		810213B41E1A35C600AAE079 /* db.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = db.sql; sourceTree = "<group>"; };
 		810611601E16B41C00B3D3E4 /* MTDetailNavView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDetailNavView.h; sourceTree = "<group>"; };
 		810611611E16B41C00B3D3E4 /* MTDetailNavView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTDetailNavView.m; sourceTree = "<group>"; };
 		810611631E16B87D00B3D3E4 /* MTDetailCenterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDetailCenterView.h; sourceTree = "<group>"; };
@@ -71,6 +74,8 @@
 		8108C9561E18EA6F00136675 /* MTSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTSearchViewController.m; sourceTree = "<group>"; };
 		8108C9581E18F70700136675 /* MTBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTBaseViewController.h; sourceTree = "<group>"; };
 		8108C9591E18F70700136675 /* MTBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBaseViewController.m; sourceTree = "<group>"; };
+		8108C95B1E1920DE00136675 /* MTDealTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDealTools.h; sourceTree = "<group>"; };
+		8108C95C1E1920DE00136675 /* MTDealTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTDealTools.m; sourceTree = "<group>"; };
 		81193D581E0FA1F900612134 /* DPAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPAPI.h; sourceTree = "<group>"; };
 		81193D591E0FA1F900612134 /* DPAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPAPI.m; sourceTree = "<group>"; };
 		81193D5A1E0FA1F900612134 /* DPConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPConstants.h; sourceTree = "<group>"; };
@@ -235,6 +240,7 @@
 				814AB5EA1E051CCC00BF863F /* Info.plist */,
 				814AB5D91E051CCC00BF863F /* Supporting Files */,
 				81B848091E085BA500F9CA40 /* PrefixHeader.pch */,
+				810213B41E1A35C600AAE079 /* db.sql */,
 				81FE962D1E08F06A0002258A /* Plist */,
 			);
 			path = MeiTuanHD;
@@ -384,6 +390,8 @@
 		814AB5FA1E051EFD00BF863F /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				8108C95B1E1920DE00136675 /* MTDealTools.h */,
+				8108C95C1E1920DE00136675 /* MTDealTools.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -524,6 +532,7 @@
 				81FE96321E08F06A0002258A /* categories.plist in Resources */,
 				81FE96351E08F06A0002258A /* sorts.plist in Resources */,
 				814AB5E61E051CCC00BF863F /* Assets.xcassets in Resources */,
+				810213B51E1A35C600AAE079 /* db.sql in Resources */,
 				81FE96341E08F06A0002258A /* cityGroups.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -613,6 +622,7 @@
 				81B8480C1E085D4C00F9CA40 /* MTNavigationController.m in Sources */,
 				81E8A9421E11421C00099A99 /* MTCenterLineLabel.m in Sources */,
 				81FE963B1E091C620002258A /* MTDistrictViewController.m in Sources */,
+				8108C95D1E1920DE00136675 /* MTDealTools.m in Sources */,
 				814AB5FD1E051F9800BF863F /* MTHomeViewController.m in Sources */,
 				81EF3E231E153C4E00D53296 /* MTDetailViewController.m in Sources */,
 				81FE96431E0950650002258A /* Foundation+Log.m in Sources */,

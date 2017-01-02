@@ -12,5 +12,6 @@ pod 'YYModel'
 pod 'SDWebImage'
 pod 'MJRefresh'
 pod 'SVProgressHUD'
+pod 'FMDB'
 
 end

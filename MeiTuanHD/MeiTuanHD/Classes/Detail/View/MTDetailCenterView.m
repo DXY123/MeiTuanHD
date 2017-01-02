@@ -221,7 +221,7 @@
     if (!_btnShare) {
         _btnShare = [UIButton buttonWithType:UIButtonTypeCustom];
         [_btnShare setImage:[UIImage imageNamed:@"icon_share"] forState:UIControlStateNormal];
-        [_btnShare setImage:[UIImage imageNamed:@"icon_share_highlighted"] forState:UIControlStateSelected];
+        [_btnShare setImage:[UIImage imageNamed:@"icon_share_highlighted"] forState:UIControlStateHighlighted];
     }
     return _btnShare;
 }
