@@ -15,4 +15,7 @@
 //提供属性供外界赋值
 @property(nonatomic,strong) MTDealModel * dealModel;
 
+//定义一个block  选择上cell后,删除按钮要可以使用
+@property(nonatomic,copy) void (^dealCellBlock)();
+
 @end

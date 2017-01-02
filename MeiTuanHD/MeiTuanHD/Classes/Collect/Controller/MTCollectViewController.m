@@ -138,11 +138,29 @@ static NSString * const reuseIdentifier = @"Cell";
         item.title = @"完成";
         //左侧显示 返回 全选 全不选 删除
         self.navigationItem.leftBarButtonItems = @[self.backItem,self.selectAllItem,self.unselectAllItem,self.deleteItem];
+        
+        //遍历数组
+        for (MTDealModel * dealModel in self.dataArray) {
+            //变成编辑状态
+            dealModel.editting = true;
+            dealModel.isChoose = false;
+        }
+        
+        
     }else{
         item.title = @"编辑";
         //左侧只显示 返回
         self.navigationItem.leftBarButtonItems = @[self.backItem];
+        
+        //遍历数组
+        for (MTDealModel * dealModel in self.dataArray) {
+            //变成编辑状态
+            dealModel.editting = false;
+            dealModel.isChoose = false;
+        }
     }
+    //刷新
+    [self.collectionView reloadData];
 }
 
 
@@ -220,6 +238,24 @@ static NSString * const reuseIdentifier = @"Cell";
     cell.backgroundColor = [UIColor brownColor];
     //赋值
     cell.dealModel = self.dataArray[indexPath.item];
+    
+    //监听cell中覆盖按钮点击 -> deleteItem状态
+    [cell setDealCellBlock:^{
+        //定义一个状态记录当前删除按钮的状态,默认为不能点击
+        BOOL isChoose = false;
+        //遍历数组
+        for (MTDealModel * dealModel in self.dataArray) {
+            if (dealModel.isChoose) {
+                //只要有一个打对勾,就使能deleteItem
+                isChoose = true;
+                break;
+            }
+        }
+        //改变deleteItem状态
+        self.deleteItem.enabled = isChoose;
+        
+    }];
+    
     return cell;
 }
 

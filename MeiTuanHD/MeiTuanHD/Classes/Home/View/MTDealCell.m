@@ -84,6 +84,19 @@
 //在dealModel中处理了
 
 
+#pragma mark - 监听方法
+- (void)btnCoverClick{
+    //取反
+    self.imgChoosed.hidden = !self.imgChoosed.hidden;
+    self.dealModel.isChoose = !self.dealModel.isChoose;
+    
+    //删除按钮处理
+    if (self.dealCellBlock) {
+        self.dealCellBlock();
+    }
+}
+
+
 #pragma mark - 设置视图
 - (void)setUpUI{
     //添加控件
@@ -235,6 +248,7 @@
         _btnCover = [UIButton buttonWithType:UIButtonTypeCustom];
         _btnCover.backgroundColor = [UIColor whiteColor];
         _btnCover.alpha = 0.5;
+        [_btnCover addTarget:self action:@selector(btnCoverClick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _btnCover;
 }
