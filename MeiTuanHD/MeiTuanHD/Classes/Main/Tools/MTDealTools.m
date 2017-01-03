@@ -116,7 +116,6 @@
     [self.queue inDatabase:^(FMDatabase *db) {
         if ([db executeUpdate:sql withArgumentsInArray:@[dealModel.deal_id]]) {
             NSLog(@"取消收藏成功");
-            [SVProgressHUD showSuccessWithStatus:@"取消收藏成功"];
         }else{
             NSLog(@"取消收藏失败");
         }

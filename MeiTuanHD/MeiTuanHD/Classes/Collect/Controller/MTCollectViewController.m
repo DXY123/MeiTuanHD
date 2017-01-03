@@ -126,8 +126,10 @@ static NSString * const reuseIdentifier = @"Cell";
         dealModel.isChoose = true;
     }
     
-    //改变删除按钮状态
-    self.deleteItem.enabled = true;
+    //改变删除按钮状态 且数据不为0
+    if (self.dataArray.count) {
+        self.deleteItem.enabled = true;
+    }
     
     [self.collectionView reloadData];
     
@@ -151,6 +153,32 @@ static NSString * const reuseIdentifier = @"Cell";
 //删除
 - (void)deleteClick{
     NSLog(@"删除");
+    
+    //先记录下来 需要删除的model
+    NSMutableArray * tempArr = [NSMutableArray array];
+    
+    //需要把打钩的数据都删除掉
+    for (MTDealModel * dealModel in self.dataArray) {
+        //需要先把数据库中的模型删掉
+        //保存需要删除的模型
+        if (dealModel.isChoose) {
+            [[MTDealTools shared] deleteDealModel:dealModel];
+            [tempArr addObject:dealModel];
+        }
+        
+    }
+    //再把collectionView显示需要删除掉的cell也要删除掉 直接删掉会导致数组越界
+    [self.dataArray removeObjectsInArray:tempArr];
+    //改变删除按钮的状态
+    self.deleteItem.enabled = false;
+    //刷新
+    [self.collectionView reloadData];
+    
+    //如果你把当前第一页数据全部删除掉 但数据库中有5页数据 那么需要判断如果count==0 需要重新加载数据 且page=1
+    if (self.dataArray.count == 0) {
+        self.currentPage = 1;
+        [self loadDealData];
+    }
 }
 
 //右侧按钮点击
@@ -224,7 +252,16 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)loadDealData{
     //请求数据
     [[MTDealTools shared] getCollectListWithPage:self.currentPage block:^(NSArray *modelArr) {
+        //判断当前是编辑状态还是完成状态
+        if ([self.navigationItem.rightBarButtonItem.title isEqualToString:@"完成"]) {
+            //编辑状态
+            for (MTDealModel * dealModel in modelArr) {
+                dealModel.editting = true;
+            }
+        }
+        
         [self.dataArray addObjectsFromArray:modelArr];
+        
         
         [self.collectionView reloadData];
         //结束mj_footer动画
