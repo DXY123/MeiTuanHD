@@ -108,6 +108,16 @@ static NSString * const reuseIdentifier = @"Cell";
     [self addRefresh];
     
     [self loadDealData];
+    
+    //注册通知
+    [MTNotificationCenter addObserver:self selector:@selector(collectDidChangeNotification) name:HMCollectDidChangeNotification object:nil];
+    
+}
+
+#pragma mark - 监听收藏通知方法
+- (void)collectDidChangeNotification{
+    self.currentPage = 1;
+    [self loadDealData];
 }
 
 
@@ -252,6 +262,12 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)loadDealData{
     //请求数据
     [[MTDealTools shared] getCollectListWithPage:self.currentPage block:^(NSArray *modelArr) {
+        
+        if (self.currentPage == 1) {
+            [self.dataArray removeAllObjects];
+        }
+        
+        
         //判断当前是编辑状态还是完成状态
         if ([self.navigationItem.rightBarButtonItem.title isEqualToString:@"完成"]) {
             //编辑状态
@@ -383,5 +399,9 @@ static NSString * const reuseIdentifier = @"Cell";
     return _deleteItem;
 }
 
+
+- (void)dealloc{
+    [MTNotificationCenter removeObserver:self];
+}
 
 @end

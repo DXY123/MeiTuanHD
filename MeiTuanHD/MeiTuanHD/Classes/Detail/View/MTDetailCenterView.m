@@ -83,6 +83,10 @@
         [[MTDealTools shared] deleteDealModel:self.dealModel];
     }
     
+    //发送通知 告知收藏界面
+    [MTNotificationCenter postNotificationName:HMCollectDidChangeNotification object:nil];
+    
+    
 }
 
 
