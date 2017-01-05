@@ -8,6 +8,8 @@
 
 #import "MTMapViewController.h"
 #import <MapKit/MapKit.h>
+#import "MTBusinessModel.h"
+
 
 @interface MTMapViewController () <MKMapViewDelegate,DPRequestDelegate>
 
@@ -15,6 +17,8 @@
 @property(nonatomic,strong) MKMapView * mapView;
 //位置管理器
 @property(nonatomic,strong) CLLocationManager * locationManager;
+//保存数据数组
+@property(nonatomic,strong) NSMutableArray * dataArray;
 
 @end
 
@@ -79,9 +83,13 @@
 
 
 #pragma mark - DPRequestDelegate
-
+//请求成功
 - (void)request:(DPRequest *)request didFinishLoadingWithResult:(id)result{
     NSLog(@"请求成功%@",result);
+    [self.dataArray addObjectsFromArray:[NSArray yy_modelArrayWithClass:[MTBusinessModel class] json:result[@"businesses"]]];
+    
+    NSLog(@"数组%@",self.dataArray);
+    
 }
 
 //请求失败
@@ -110,5 +118,14 @@
     }
     return _locationManager;
 }
+
+- (NSMutableArray *)dataArray{
+    if (!_dataArray) {
+        _dataArray = [NSMutableArray array];
+    }
+    return _dataArray;
+}
+
+
 
 @end
