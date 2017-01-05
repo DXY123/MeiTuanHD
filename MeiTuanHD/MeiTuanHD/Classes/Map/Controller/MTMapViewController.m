@@ -9,6 +9,7 @@
 #import "MTMapViewController.h"
 #import <MapKit/MapKit.h>
 #import "MTBusinessModel.h"
+#import "MTAnnotationModel.h"
 
 
 @interface MTMapViewController () <MKMapViewDelegate,DPRequestDelegate>
@@ -86,9 +87,31 @@
 //请求成功
 - (void)request:(DPRequest *)request didFinishLoadingWithResult:(id)result{
     NSLog(@"请求成功%@",result);
+    
+    //需要先清空数组里的数据
+    [self.dataArray removeAllObjects];
+    //清除地图上的大头针
+    [self.mapView removeAnnotations:self.mapView.annotations];
+    
+    //字典转模型 保存数据
     [self.dataArray addObjectsFromArray:[NSArray yy_modelArrayWithClass:[MTBusinessModel class] json:result[@"businesses"]]];
     
     NSLog(@"数组%@",self.dataArray);
+    
+    
+    //遍历数组 创建大头针
+    for (MTBusinessModel * businessModel in self.dataArray) {
+        //实例化大头针模型
+        MTAnnotationModel * annotationModel = [MTAnnotationModel new];
+        //赋值
+        annotationModel.coordinate = CLLocationCoordinate2DMake(businessModel.latitude, businessModel.longitude);
+        annotationModel.title = businessModel.name;
+        annotationModel.subtitle = businessModel.address;
+        
+        //添加到地图中
+        [self.mapView addAnnotation:annotationModel];
+        
+    }
     
 }
 
