@@ -88,6 +88,7 @@
 - (void)request:(DPRequest *)request didFinishLoadingWithResult:(id)result{
     NSLog(@"请求成功%@",result);
     
+    //防止重复添加大头针:
     //需要先清空数组里的数据
     [self.dataArray removeAllObjects];
     //清除地图上的大头针
@@ -114,6 +115,29 @@
     }
     
 }
+
+//返回大头针的View方法 和UITableViewCell相似
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
+    
+    //如果大头针是用户的位置,(通过class判断)返回nil
+    if ([annotation isKindOfClass:[MKUserLocation class]]) {
+        return nil;
+    }
+    
+    static NSString * annotationId = @"annotationId";
+    MKAnnotationView * annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:annotationId];
+    
+    if (annotationView == nil) {
+        annotationView = [[MKAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:annotationId];
+        //如果自定义 就不能 popoverView了
+        annotationView.canShowCallout = true;
+    }
+    //设置image
+    annotationView.image = [UIImage imageNamed:@"ic_category_3"];
+    return annotationView;
+    
+}
+
 
 //请求失败
 - (void)request:(DPRequest *)request didFailWithError:(NSError *)error{
