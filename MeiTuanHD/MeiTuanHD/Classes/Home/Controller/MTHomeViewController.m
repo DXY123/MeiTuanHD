@@ -31,6 +31,8 @@
 #import "MTNavigationController.h"
 //收藏控制器
 #import "MTCollectViewController.h"
+//地图控制器
+#import "MTMapViewController.h"
 
 @interface MTHomeViewController ()<AwesomeMenuDelegate>
 
@@ -380,6 +382,12 @@
 #pragma mark - 监听方法
 - (void)mapClick{
     NSLog(@"地图点击");
+    MTMapViewController * mapVc = [MTMapViewController new];
+    //导航
+    MTNavigationController * mapNav = [[MTNavigationController alloc]initWithRootViewController:mapVc];
+    
+    
+    [self presentViewController:mapNav animated:true completion:nil];
 }
 
 - (void)searchClick{
