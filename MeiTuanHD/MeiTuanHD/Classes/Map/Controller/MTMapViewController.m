@@ -9,7 +9,7 @@
 #import "MTMapViewController.h"
 #import <MapKit/MapKit.h>
 
-@interface MTMapViewController ()
+@interface MTMapViewController () <MKMapViewDelegate,DPRequestDelegate>
 
 //实例化地图
 @property(nonatomic,strong) MKMapView * mapView;
@@ -61,12 +61,44 @@
 }
 
 
+#pragma mark - MKMapViewDelegate
+//监听位置改变
+- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated{
+    //请求数据
+    DPAPI * api = [DPAPI new];
+    //设置参数
+    NSMutableDictionary * params = [NSMutableDictionary dictionary];
+    //经纬度
+    params[@"latitude"] = @(mapView.region.center.latitude);
+    params[@"longitude"] = @(mapView.region.center.longitude);
+    
+    //发送请求,url在大众点评开发文档:搜索商户中
+    [api requestWithURL:@"v1/business/find_businesses" params:params delegate:self];
+    
+}
+
+
+#pragma mark - DPRequestDelegate
+
+- (void)request:(DPRequest *)request didFinishLoadingWithResult:(id)result{
+    NSLog(@"请求成功%@",result);
+}
+
+//请求失败
+- (void)request:(DPRequest *)request didFailWithError:(NSError *)error{
+    NSLog(@"请求失败%@",error);
+}
+
+
 #pragma mark - 懒加载
 -(MKMapView *)mapView{
     if (!_mapView) {
         _mapView = [[MKMapView alloc]init];
         //设置用户跟踪
         _mapView.userTrackingMode = MKUserTrackingModeFollow;
+        
+        //设置代理
+        _mapView.delegate = self;
         
     }
     return _mapView;
