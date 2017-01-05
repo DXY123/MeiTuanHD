@@ -57,7 +57,7 @@
 #pragma mark - 设置视图
 - (void)setUpUI{
     self.size = CGSizeMake(160, 40);
-    self.backgroundColor = HMColor(222, 222, 222);
+//    self.backgroundColor = HMColor(222, 222, 222);
     
     
     //添加控件

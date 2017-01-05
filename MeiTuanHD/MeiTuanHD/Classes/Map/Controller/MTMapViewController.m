@@ -11,6 +11,11 @@
 #import "MTBusinessModel.h"
 #import "MTAnnotationModel.h"
 #import "MTMateTools.h"
+#import "MTCategoryViewController.h"
+#import "MTCategoryModel.h"
+//自定义导航View
+#import "MTHomeNavView.h"
+
 
 @interface MTMapViewController () <MKMapViewDelegate,DPRequestDelegate>
 
@@ -20,6 +25,11 @@
 @property(nonatomic,strong) CLLocationManager * locationManager;
 //保存数据数组
 @property(nonatomic,strong) NSMutableArray * dataArray;
+//分类
+@property(nonatomic,strong) MTHomeNavView * categoryNavView;
+//选择的分类名
+@property(nonatomic,copy) NSString * selectCategoryName;
+
 
 @end
 
@@ -35,14 +45,71 @@
         [self.locationManager requestWhenInUseAuthorization];
     }
     
+    //分类通知注册
+    [MTNotificationCenter addObserver:self selector:@selector(categoryDidChangeNotification:) name:HMCategoryDidChangeNotifacation object:nil];
     
 }
 
+
+#pragma mark - 监听选择分类通知方法
+- (void)categoryDidChangeNotification:(NSNotification *)noti{
+    //分类模型
+    MTCategoryModel * categoryModel = noti.userInfo[HMSelectCategoryModel];
+    //分类分类的子标题
+    NSString * selectCategorySubtitle = noti.userInfo[HMSelectCategorySubtitle];
+    
+    NSLog(@"模型name:%@",categoryModel.name);
+    NSLog(@"子标题:%@",selectCategorySubtitle);
+    
+    //设置自定义视图显示的内容
+    //title
+    [self.categoryNavView setLabTitleText:categoryModel.name];
+    //设置子标题
+    [self.categoryNavView setLabSubTitleText:selectCategorySubtitle];
+    //设置icon
+    [self.categoryNavView setIcon:categoryModel.icon hlIcon:categoryModel.highlighted_icon];
+    
+    
+    //关掉控制器
+    [self dismissViewControllerAnimated:true completion:nil];
+    
+    //如果selectCategorySubtitle == nil 表示没有子分类数据 如果有子分类数据 但是selectCategorySubtitle == 全部
+    if (selectCategorySubtitle == nil || [selectCategorySubtitle isEqualToString:@"全部"]) {
+        self.selectCategoryName = categoryModel.name;
+    }else{
+        self.selectCategoryName = selectCategorySubtitle;
+    }
+    
+    //如果self.selectCategoryName == 全部分类
+    if ([self.selectCategoryName isEqualToString:@"全部分类"]) {
+        self.selectCategoryName = nil;
+    }
+    
+    //加载数据
+    [self mapView:self.mapView regionDidChangeAnimated:true];
+    
+}
 
 #pragma mark - 监听方法
 - (void)backClick{
     [self dismissViewControllerAnimated:true completion:nil];
 }
+
+
+#pragma mark - 监听事件
+//分类
+- (void)categoryClick{
+    NSLog(@"分类");
+    //实例化
+    MTCategoryViewController * categoryVc = [MTCategoryViewController new];
+    //设置呈现样式
+    categoryVc.modalPresentationStyle = UIModalPresentationPopover;
+    //设置barButtonItem
+    categoryVc.popoverPresentationController.barButtonItem = self.navigationItem.leftBarButtonItems[1];
+    //模态弹出
+    [self presentViewController:categoryVc animated:YES completion:nil];
+}
+
 
 #pragma mark - 设置视图
 - (void)setUpUI{
@@ -59,7 +126,8 @@
 #pragma mark - 设置导航
 - (void)setUpNav{
     UIBarButtonItem * backItem = [UIBarButtonItem BarButtonItemWithImgName:@"icon_back" Target:self action:@selector(backClick)];
-    self.navigationItem.leftBarButtonItems = @[backItem];
+    UIBarButtonItem * categoryItem = [[UIBarButtonItem alloc] initWithCustomView:self.categoryNavView];
+    self.navigationItem.leftBarButtonItems = @[backItem,categoryItem];
     
     self.title = @"地图";
     
@@ -76,6 +144,11 @@
     //经纬度
     params[@"latitude"] = @(mapView.region.center.latitude);
     params[@"longitude"] = @(mapView.region.center.longitude);
+    
+    //分类
+    if (self.selectCategoryName) {
+        params[@"category"] = self.selectCategoryName;
+    }
     
     //发送请求,url在大众点评开发文档:搜索商户中
     [api requestWithURL:@"v1/business/find_businesses" params:params delegate:self];
@@ -180,6 +253,29 @@
     return _dataArray;
 }
 
+//分类
+- (MTHomeNavView *)categoryNavView{
+    if (!_categoryNavView) {
+        WeakSelf(MTMapViewController);
+        _categoryNavView = [MTHomeNavView new];
+        //设置属性
+        [_categoryNavView setLabTitleText:@"全部分类"];
+        [_categoryNavView setLabSubTitleText:@""];
+        [_categoryNavView setIcon:@"icon_category_-1" hlIcon:@"icon_category_highlighted_-1"];
+        
+        //02 实例化
+        [_categoryNavView setHomeNavViewBlock:^{
+            //04 接收回调
+            [weakSelf categoryClick];
+        }];
+        
+        
+    }
+    return _categoryNavView;
+}
 
+- (void)dealloc{
+    [MTNotificationCenter removeObserver:self];
+}
 
 @end

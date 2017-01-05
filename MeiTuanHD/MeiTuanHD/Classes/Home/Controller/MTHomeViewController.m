@@ -66,7 +66,8 @@
 
     [self setUpUI];
     
-    [self setUpNotificationCenter];
+    //在viewWillAppear调用
+//    [self setUpNotificationCenter];
     
     //首次进入就需要下拉刷新
     [self.collectionView.mj_header beginRefreshing];
@@ -534,11 +535,18 @@
     return _sortNavView;
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self setUpNotificationCenter];
+}
 
-
-- (void)dealloc{
+- (void)viewWillDisappear:(BOOL)animated{
     [MTNotificationCenter removeObserver:self];
 }
+
+//- (void)dealloc{
+//    [MTNotificationCenter removeObserver:self];
+//}
 
 
 @end
