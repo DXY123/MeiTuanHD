@@ -10,7 +10,7 @@
 #import <MapKit/MapKit.h>
 #import "MTBusinessModel.h"
 #import "MTAnnotationModel.h"
-
+#import "MTMateTools.h"
 
 @interface MTMapViewController () <MKMapViewDelegate,DPRequestDelegate>
 
@@ -109,6 +109,9 @@
         annotationModel.title = businessModel.name;
         annotationModel.subtitle = businessModel.address;
         
+        //赋值icon
+        annotationModel.icon = [[MTMateTools shared] getMapImageName:businessModel];
+        
         //添加到地图中
         [self.mapView addAnnotation:annotationModel];
         
@@ -132,8 +135,12 @@
         //如果自定义 就不能 popoverView了
         annotationView.canShowCallout = true;
     }
+    
+    //强转类型
+    MTAnnotationModel * annotationModel = (MTAnnotationModel *)annotation;
+    
     //设置image
-    annotationView.image = [UIImage imageNamed:@"ic_category_3"];
+    annotationView.image = [UIImage imageNamed:annotationModel.icon];
     return annotationView;
     
 }

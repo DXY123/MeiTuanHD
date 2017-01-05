@@ -36,6 +36,7 @@
 		8177674B1E1E2CC800E6C6CA /* MTMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8177674A1E1E2CC800E6C6CA /* MTMapViewController.m */; };
 		817767501E1E44DA00E6C6CA /* MTBusinessModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8177674F1E1E44DA00E6C6CA /* MTBusinessModel.m */; };
 		818E3F0F1E1E838700280C8A /* MTAnnotationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 818E3F0E1E1E838700280C8A /* MTAnnotationModel.m */; };
+		818E3F121E1ED39F00280C8A /* MTMateTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 818E3F111E1ED39F00280C8A /* MTMateTools.m */; };
 		81B5033B1E098324008B03CF /* MTCitySearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B5033A1E098324008B03CF /* MTCitySearchResultViewController.m */; };
 		81B848081E08572100F9CA40 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 814AB5DD1E051CCC00BF863F /* AppDelegate.m */; };
 		81B8480C1E085D4C00F9CA40 /* MTNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B8480B1E085D4C00F9CA40 /* MTNavigationController.m */; };
@@ -122,6 +123,8 @@
 		8177674F1E1E44DA00E6C6CA /* MTBusinessModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBusinessModel.m; sourceTree = "<group>"; };
 		818E3F0D1E1E838700280C8A /* MTAnnotationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTAnnotationModel.h; sourceTree = "<group>"; };
 		818E3F0E1E1E838700280C8A /* MTAnnotationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTAnnotationModel.m; sourceTree = "<group>"; };
+		818E3F101E1ED39F00280C8A /* MTMateTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTMateTools.h; sourceTree = "<group>"; };
+		818E3F111E1ED39F00280C8A /* MTMateTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTMateTools.m; sourceTree = "<group>"; };
 		81B503391E098324008B03CF /* MTCitySearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTCitySearchResultViewController.h; sourceTree = "<group>"; };
 		81B5033A1E098324008B03CF /* MTCitySearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTCitySearchResultViewController.m; sourceTree = "<group>"; };
 		81B848091E085BA500F9CA40 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -440,6 +443,8 @@
 			children = (
 				8108C95B1E1920DE00136675 /* MTDealTools.h */,
 				8108C95C1E1920DE00136675 /* MTDealTools.m */,
+				818E3F101E1ED39F00280C8A /* MTMateTools.h */,
+				818E3F111E1ED39F00280C8A /* MTMateTools.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -695,6 +700,7 @@
 				8101B9941E141A9A006B787C /* AwesomeMenu.m in Sources */,
 				818E3F0F1E1E838700280C8A /* MTAnnotationModel.m in Sources */,
 				810611651E16B87D00B3D3E4 /* MTDetailCenterView.m in Sources */,
+				818E3F121E1ED39F00280C8A /* MTMateTools.m in Sources */,
 				814097BC1E0AA94D000FF54C /* HMConst.m in Sources */,
 				81593CE21E08655700E84987 /* MTHomeNavView.m in Sources */,
 				81B5033B1E098324008B03CF /* MTCitySearchResultViewController.m in Sources */,

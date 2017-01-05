@@ -17,5 +17,8 @@
 @property (nonatomic, copy, nullable) NSString *title;
 //子标题
 @property (nonatomic, copy, nullable) NSString *subtitle;
+//自定义大头针需要的image
+@property(nonatomic, copy, nullable) NSString * icon;
+
 
 @end
