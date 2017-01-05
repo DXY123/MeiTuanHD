@@ -7,8 +7,14 @@
 //
 
 #import "MTMapViewController.h"
+#import <MapKit/MapKit.h>
 
 @interface MTMapViewController ()
+
+//实例化地图
+@property(nonatomic,strong) MKMapView * mapView;
+//位置管理器
+@property(nonatomic,strong) CLLocationManager * locationManager;
 
 @end
 
@@ -18,6 +24,13 @@
     [super viewDidLoad];
     
     [self setUpUI];
+    
+    //开启定位
+    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+    
+    
 }
 
 
@@ -29,6 +42,13 @@
 #pragma mark - 设置视图
 - (void)setUpUI{
     [self setUpNav];
+    
+    [self.view addSubview:self.mapView];
+    
+    [self.mapView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    
 }
 
 #pragma mark - 设置导航
@@ -38,6 +58,25 @@
     
     self.title = @"地图";
     
+}
+
+
+#pragma mark - 懒加载
+-(MKMapView *)mapView{
+    if (!_mapView) {
+        _mapView = [[MKMapView alloc]init];
+        //设置用户跟踪
+        _mapView.userTrackingMode = MKUserTrackingModeFollow;
+        
+    }
+    return _mapView;
+}
+
+- (CLLocationManager *)locationManager{
+    if (!_locationManager) {
+        _locationManager = [CLLocationManager new];
+    }
+    return _locationManager;
 }
 
 @end

@@ -34,6 +34,7 @@
 		81593CE21E08655700E84987 /* MTHomeNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81593CE11E08655700E84987 /* MTHomeNavView.m */; };
 		81593CE51E08705700E84987 /* UIImage+MTCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 81593CE41E08705700E84987 /* UIImage+MTCategory.m */; };
 		8177674B1E1E2CC800E6C6CA /* MTMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8177674A1E1E2CC800E6C6CA /* MTMapViewController.m */; };
+		8177674D1E1E357100E6C6CA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8177674C1E1E357100E6C6CA /* MapKit.framework */; };
 		81B5033B1E098324008B03CF /* MTCitySearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B5033A1E098324008B03CF /* MTCitySearchResultViewController.m */; };
 		81B848081E08572100F9CA40 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 814AB5DD1E051CCC00BF863F /* AppDelegate.m */; };
 		81B8480C1E085D4C00F9CA40 /* MTNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B8480B1E085D4C00F9CA40 /* MTNavigationController.m */; };
@@ -115,6 +116,7 @@
 		81593CE41E08705700E84987 /* UIImage+MTCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MTCategory.m"; sourceTree = "<group>"; };
 		817767491E1E2CC800E6C6CA /* MTMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTMapViewController.h; sourceTree = "<group>"; };
 		8177674A1E1E2CC800E6C6CA /* MTMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTMapViewController.m; sourceTree = "<group>"; };
+		8177674C1E1E357100E6C6CA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		81B503391E098324008B03CF /* MTCitySearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTCitySearchResultViewController.h; sourceTree = "<group>"; };
 		81B5033A1E098324008B03CF /* MTCitySearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTCitySearchResultViewController.m; sourceTree = "<group>"; };
 		81B848091E085BA500F9CA40 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8177674D1E1E357100E6C6CA /* MapKit.framework in Frameworks */,
 				A64EA7C0AE94EA33F5B28F63 /* libPods-MeiTuanHD.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -526,6 +529,7 @@
 		988052DE8C557C2B563E37E6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8177674C1E1E357100E6C6CA /* MapKit.framework */,
 				A430A651A51F9281FB24E44B /* libPods-MeiTuanHD.a */,
 			);
 			name = Frameworks;
